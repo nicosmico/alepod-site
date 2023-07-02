@@ -17,7 +17,6 @@
         "main navbar"
         "main navbar"
         "footer navbar";
-        grid-template-columns: 1fr auto;
         
         max-width: 80rem;
         margin-inline: auto;
@@ -45,14 +44,14 @@
     width: 100vw;     
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
     .header {
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
         justify-content: space-between;
 
-        /* .container properties */
+        /* .container and .section properties */
         padding-inline: var(--container-border);
         padding-block: 2rem;
     }
@@ -72,7 +71,7 @@
     object-fit: cover;
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
     .locations-container {
         flex-direction: row;
         justify-content: space-between;

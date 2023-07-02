@@ -5,3 +5,7 @@
 @import url(./display.css);
 @import url(./components/components.css);
 @import url(./layout.css);
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}

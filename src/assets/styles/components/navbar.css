@@ -22,7 +22,7 @@
 }
 
 .navbar__toggle[aria-expanded="true"] {
-    background-image: url(../../icons/close.svg);
+    background-image: url(../../icons/close-white.svg);
 }
 
 .navbar__list {
@@ -77,6 +77,10 @@
         min-height: auto;
         padding: 0;
         padding-inline: 1.5rem;
+    }
+
+    .navbar__list > li {
+        white-space: nowrap;
     }
 
     .navbar__logo {
