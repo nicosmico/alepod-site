@@ -9,64 +9,73 @@
 </head>
 
 <body>
-  <nav class="container d-flex navbar">
-    <img class="navbar__logo" src="assets/images/logo-alepod-square.jpg" alt="Logo cuadrado de Alepod.">
-    <button class="navbar__toggle">
-      <img src="https://img.icons8.com/ios/50/menu--v1.png" alt="Menu">
-    </button>
-    <ul class="navbar__list">
-      <li class="navbar__item"><a href="#"><span>01</span>Agendar hora</a></li>
-      <li class="navbar__item"><a href="#"><span>02</span>Localidades</a></li>
-      <li class="navbar__item"><a href="#"><span>03</span>Comentarios</a></li>
-      <li class="navbar__item"><a href="#"><span>04</span>Sobre mi</a></li>
-      <li class="navbar__item"><a href="#"><span>05</span>Comentarios</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <header>
-      <img src="assets/images/header-foot.jpg" alt="Fotografía de un pie siendo atentido.">
-      <div class="container">
-        <h1>Alepod</h1>
-        <p>Podología a domicilio</p>
-        <div></div>
-        <p>Agenda tu hora por Whatsapp o llamando al</p>
-        <p>+569 89799154</p>
-        <button>Agendar hora</button>
-      </div>
-    </header>
-
-    <section class="container">
-      <h1>Localidades</h1>
-      <div>
-        <div>
-          <div>
-            <ul>
-              <li>Molina</li>
-              <li>Lontué</li>
-              <li>Curicó</li>
-              <li>Pichingal</li>
-              <li>Los Niches</li>
-              <li>Cordillerilla</li>
-            </ul>
-            <p>Si no aparece tu localidad no dudes en consultar llamando al +569 89799154.</p>
+  <div class="main-layout">
+    <nav class="flex-center-between navbar container">
+      <img class="navbar__logo" src="assets/images/logo-alepod-square.svg" alt="Logo cuadrado de Alepod.">
+      <button class="navbar__toggle" aria-expanded="false"><span class="sr-only">Menu</span></button>
+      <ul class="navbar__list" data-visible="false">
+        <li class="navbar__item"><a class="uppercase" href="#"><span>01</span>Agendar hora</a></li>
+        <li class="navbar__item"><a class="uppercase" href="#"><span>02</span>Localidades</a></li>
+        <li class="navbar__item"><a class="uppercase" href="#"><span>03</span>Comentarios</a></li>
+        <li class="navbar__item"><a class="uppercase" href="#"><span>04</span>Sobre mi</a></li>
+        <li class="navbar__item"><a class="uppercase" href="#"><span>05</span>Comentarios</a></li>
+      </ul>
+    </nav>
+  
+    <main class="main">
+      <div class="bg-primary-container bg-full-bleed">
+        <header class="header">
+          <img class="header-image" src="assets/images/header-foot.jpg" alt="Fotografía de un pie siendo atentido.">
+          <div class="header-title text-center">
+            <h1 class="uppercase">Alepod</h1>
+            <p>Podología a domicilio</p>
+            <div></div>
+            <p>Agenda tu hora por Whatsapp o llamando al</p>
+            <p>+569 89799154</p>
+            <button>Agendar hora</button>
           </div>
-          <button>Consultar por teléfono</button>
-        </div>
-        <img src="assets/images/fake-map.jpg">
+        </header>
       </div>
-    </section>
-
-    <section class="container">
-      <h1>Comentarios</h1>
-      <div>
-        <div>
-          <img src="assets/images/fake-comment-profile.jpg" alt="Foto de perfil de persona que comentó.">
-          <p>“Muy buena atención, vino con una maleta con todos sus utencilios, todo muy profesional! Quedamos muy satisfechos!!”</p>
+  
+      <section class="section container">
+        <p>¿Dónde atiende?</p>  
+        <h1>Localidades</h1>
+        <div class="flex-column flex-align-center locations-container">
+          <div class="text-center">
+            <div>
+              <ul class="list-style-none flex-justify-start flex-wrap gap-05">
+                <li>Molina</li>
+                <li>Lontué</li>
+                <li>Curicó</li>
+                <li>Pichingal</li>
+                <li>Los Niches</li>
+                <li>Cordillerilla</li>
+              </ul>
+              <p>Si no aparece tu localidad no dudes en consultar llamando al +569 89799154.</p>
+            </div>
+            <button>Consultar por teléfono</button>
+          </div>
+          <img class="locations-container_map" src="assets/images/fake-map.jpg">
         </div>
+      </section>
+  
+      <div class="bg-primary-container bg-full-bleed">
+        <section class="section container">
+          <h1>Comentarios</h1>
+          <div>
+            <div class="flex-center-center gap-05">
+              <img src="assets/images/fake-comment-profile.jpg" alt="Foto de perfil de persona que comentó.">
+              <p>“Muy buena atención, vino con una maleta con todos sus utencilios, todo muy profesional! Quedamos muy satisfechos!!”</p>
+            </div>
+            <div class="flex-center-center gap-05">
+              <img src="assets/images/fake-comment-profile.jpg" alt="Foto de perfil de persona que comentó.">
+              <p>“Muy buena atención, vino con una maleta con todos sus utencilios, todo muy profesional! Quedamos muy satisfechos!!”</p>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-  </main>
+    </main>
+  </div>
 </body>
 
 </html>

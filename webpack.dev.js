@@ -12,7 +12,7 @@ module.exports = merge(common, {
     },
     hot: false,
     // open: true,
-    host: 'localhost',
+    // host: 'localhost',
     port: 3000,
   },
   watchOptions: {

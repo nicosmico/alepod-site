@@ -1,0 +1,187 @@
+/* Small */
+:root {
+  /* display - small */
+  --typescale-display-font-family-name: Roboto;
+  --typescale-display-font-family-style: Regular;
+  --typescale-display-font-weight: 400px;
+  --typescale-display-font-size: 36px;
+  --typescale-display-line-height: 44px;
+  --typescale-display-letter-spacing: 0px;
+
+  /* headline - small */
+  --typescale-headline-font-family-name: Roboto;
+  --typescale-headline-font-family-style: Regular;
+  --typescale-headline-font-weight: 400px;
+  --typescale-headline-font-size: 24px;
+  --typescale-headline-line-height: 32px;
+  --typescale-headline-letter-spacing: 0px;
+
+  /* body - small */
+  --typescale-body-font-family-name: Roboto;
+  --typescale-body-font-family-style: Regular;
+  --typescale-body-font-weight: 400px;
+  --typescale-body-font-size: 12px;
+  --typescale-body-line-height: 16px;
+  --typescale-body-letter-spacing: 0.40px;
+
+  /* label - small */
+  --typescale-label-font-family-name: Roboto;
+  --typescale-label-font-family-style: Medium;
+  --typescale-label-font-weight: 500px;
+  --typescale-label-font-size: 11px;
+  --typescale-label-line-height: 16px;
+  --typescale-label-letter-spacing: 0.50px;
+
+  /* title - small */
+  --typescale-title-font-family-name: Roboto;
+  --typescale-title-font-family-style: Medium;
+  --typescale-title-font-weight: 500px;
+  --typescale-title-font-size: 14px;
+  --typescale-title-line-height: 20px;
+  --typescale-title-letter-spacing: 0.10px;
+}
+
+/* Medium */
+@media (min-width: 48rem) {
+  :root {
+    /* display - medium */
+    --typescale-display-font-family-name: Roboto;
+    --typescale-display-font-family-style: Regular;
+    --typescale-display-font-weight: 400px;
+    --typescale-display-font-size: 45px;
+    --typescale-display-line-height: 52px;
+    --typescale-display-letter-spacing: 0px;
+
+    /* headline - medium */
+    --typescale-headline-font-family-name: Roboto;
+    --typescale-headline-font-family-style: Regular;
+    --typescale-headline-font-weight: 400px;
+    --typescale-headline-font-size: 28px;
+    --typescale-headline-line-height: 36px;
+    --typescale-headline-letter-spacing: 0px;
+
+    /* body - medium */
+    --typescale-body-font-family-name: Roboto;
+    --typescale-body-font-family-style: Regular;
+    --typescale-body-font-weight: 400px;
+    --typescale-body-font-size: 14px;
+    --typescale-body-line-height: 20px;
+    --typescale-body-letter-spacing: 0.25px;
+
+    /* label - medium */
+    --typescale-label-font-family-name: Roboto;
+    --typescale-label-font-family-style: Medium;
+    --typescale-label-font-weight: 500px;
+    --typescale-label-font-size: 12px;
+    --typescale-label-line-height: 16px;
+    --typescale-label-letter-spacing: 0.50px;
+
+    /* title - medium */
+    --typescale-title-font-family-name: Roboto;
+    --typescale-title-font-family-style: Medium;
+    --typescale-title-font-weight: 500px;
+    --typescale-title-font-size: 16px;
+    --typescale-title-line-height: 24px;
+    --typescale-title-letter-spacing: 0.15px;
+  }
+}
+
+/* Large */
+@media (min-width: 64rem) {
+  :root {
+    /* display - large */
+    --typescale-display-font-family-name: Roboto;
+    --typescale-display-font-family-style: Regular;
+    --typescale-display-font-weight: 400px;
+    --typescale-display-font-size: 57px;
+    --typescale-display-line-height: 64px;
+    --typescale-display-letter-spacing: -0.25px;
+
+    /* headline - large */
+    --typescale-headline-font-family-name: Roboto;
+    --typescale-headline-font-family-style: Regular;
+    --typescale-headline-font-weight: 400px;
+    --typescale-headline-font-size: 32px;
+    --typescale-headline-line-height: 40px;
+    --typescale-headline-letter-spacing: 0px;
+
+    /* body - large */
+    --typescale-body-font-family-name: Roboto;
+    --typescale-body-font-family-style: Regular;
+    --typescale-body-font-weight: 400px;
+    --typescale-body-font-size: 16px;
+    --typescale-body-line-height: 24px;
+    --typescale-body-letter-spacing: 0.50px;
+
+    /* label - large */
+    --typescale-label-font-family-name: Roboto;
+    --typescale-label-font-family-style: Medium;
+    --typescale-label-font-weight: 500px;
+    --typescale-label-font-size: 14px;
+    --typescale-label-line-height: 20px;
+    --typescale-label-letter-spacing: 0.10px;
+
+    /* title - large */
+    --typescale-title-font-family-name: Roboto;
+    --typescale-title-font-family-style: Regular;
+    --typescale-title-font-weight: 400px;
+    --typescale-title-font-size: 22px;
+    --typescale-title-line-height: 28px;
+    --typescale-title-letter-spacing: 0px;
+  }
+}
+
+.ft-display {
+  font-family: var(--typescale-display-font-family-name);
+  font-style: var(--typescale-display-font-family-style);
+  font-weight: var(--typescale-display-font-weight);
+  font-size: var(--typescale-display-font-size);
+  letter-spacing: var(--typescale-display-tracking);
+  line-height: var(--typescale-display-height);
+  text-transform: var(--typescale-display-text-transform);
+  text-decoration: var(--typescale-display-text-decoration);
+}
+
+.ft-headline {
+  font-family: var(--typescale-headline-font-family-name);
+  font-style: var(--typescale-headline-font-family-style);
+  font-weight: var(--typescale-headline-font-weight);
+  font-size: var(--typescale-headline-font-size);
+  letter-spacing: var(--typescale-headline-tracking);
+  line-height: var(--typescale-headline-height);
+  text-transform: var(--typescale-headline-text-transform);
+  text-decoration: var(--typescale-headline-text-decoration);
+}
+
+.ft-body {
+  font-family: var(--typescale-body-font-family-name);
+  font-style: var(--typescale-body-font-family-style);
+  font-weight: var(--typescale-body-font-weight);
+  font-size: var(--typescale-body-font-size);
+  letter-spacing: var(--typescale-body-tracking);
+  line-height: var(--typescale-body-height);
+  text-transform: var(--typescale-body-text-transform);
+  text-decoration: var(--typescale-body-text-decoration);
+}
+
+.ft-label {
+  font-family: var(--typescale-label-font-family-name);
+  font-style: var(--typescale-label-font-family-style);
+  font-weight: var(--typescale-label-font-weight);
+  font-size: var(--typescale-label-font-size);
+  letter-spacing: var(--typescale-label-tracking);
+  line-height: var(--typescale-label-height);
+  text-transform: var(--typescale-label-text-transform);
+  text-decoration: var(--typescale-label-text-decoration);
+}
+
+.ft-title {
+  font-family: var(--typescale-font-family-name);
+  font-style: var(--typescale-font-family-style);
+  font-weight: var(--typescale-font-weight);
+  font-size: var(--typescale-font-size);
+  letter-spacing: var(--typescale-tracking);
+  line-height: var(--typescale-height);
+  text-transform: var(--typescale-text-transform);
+  text-decoration: var(--typescale-text-decoration);
+}
