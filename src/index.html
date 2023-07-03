@@ -9,40 +9,45 @@
 </head>
 
 <body>
-  <div class="main-layout txt-on-background">
-    <nav class="flex-center-between navbar container">
+  <div class="main-layout">
+    <nav class="flex-center-between navbar container bg-primary-container">
       <img class="navbar__logo" src="assets/images/logo-alepod-square.svg" alt="Logo cuadrado de Alepod.">
       <button class="navbar__toggle" aria-expanded="false"><span class="sr-only">Menu</span></button>
-      <ul class="navbar__list bg-primary txt-on-primary ft-body" data-visible="false">
-        <li class="navbar__item"><a class="uppercase" href="#"><span>01</span>Agendar hora</a></li>
-        <li class="navbar__item"><a class="uppercase" href="#"><span>02</span>Localidades</a></li>
-        <li class="navbar__item"><a class="uppercase" href="#"><span>03</span>Comentarios</a></li>
-        <li class="navbar__item"><a class="uppercase" href="#"><span>04</span>Sobre mi</a></li>
-        <li class="navbar__item"><a class="uppercase" href="#"><span>05</span>Comentarios</a></li>
+      <ul class="navbar__list bg-primary txt-on-primary ft-body spaced-y-05" data-visible="false">
+        <li class="navbar__item uppercase"><a href="#home"><span>01</span>Agendar hora</a></li>
+        <li class="navbar__item uppercase"><a href="#locations"><span>02</span>Localidades</a></li>
+        <li class="navbar__item uppercase"><a href="#questions"><span>03</span>Preguntas</a></li>
+        <li class="navbar__item uppercase"><a href="#comments"><span>04</span>Comentarios</a></li>
+        <li class="navbar__item uppercase"><a href="#about-me"><span>05</span>Sobre mi</a></li>
       </ul>
     </nav>
   
     <main class="main">
-      <div class="bg-primary-container bg-full-bleed txt-on-primary-container">
+      <div class="bg-primary-container bg-full-bleed txt-on-primary-container" id="home">
         <header class="header">
-          <img class="header-image" src="assets/images/header-foot.jpg" alt="Fotografía de un pie siendo atentido.">
-          <div class="header-title text-center">
-            <h1 class="uppercase txt-primary ft-display">Alepod</h1>
-            <p class="ft-title uppercase">Podología a domicilio</p>
-            <div></div>
-            <p class="ft-body">Agenda tu hora por Whatsapp o por teléfono.</p>
-            <p class="ft-headline">+569 89799154</p>
-            <button>Agendar hora</button>
+          <img class="header__image" src="assets/images/header-foot.jpg" alt="Fotografía de un pie siendo atentido.">
+          <div class="text-center p-y-2 header__text container">
+            <div>
+              <h1 class="uppercase txt-primary ft-display">Alepod</h1>
+              <p class="ft-title uppercase">Podología clínica a domicilio</p>
+              <div class="separator"></div>
+            </div>
+            <div class="spaced-y-05">
+              <p class="ft-body">Agenda tu hora por Whatsapp o por teléfono.</p>
+              <p class="ft-headline">+569 89799154</p>
+              <button class="rounded-button--primary ft-title width-100">Agendar hora</button>
+            </div>
           </div>
         </header>
       </div>
   
-      <section class="section container">
+      <section class="container p-y-2" id="locations">
         <p class="ft-title">¿Dónde atiende?</p>  
-        <h1 class="txt-primary ft-headline">Localidades</h1>
-        <div class="flex-column flex-align-center locations-container">
-          <div class="text-center">
-            <div class="bg-primary-container ft-body">
+        <h1 class="txt-primary ft-headline m-b-1">Localidades</h1>
+        <div class="flex-column flex-align-center locations-container gap-1">
+          <img class="locations-container__map b-rad-20" src="assets/images/fake-map.jpg">
+          <div class="text-center spaced-y-05">
+            <div class="bg-primary-container ft-body p-1 b-rad-20">
               <ul class="list-style-none flex-justify-start flex-wrap gap-05">
                 <li>Molina</li>
                 <li>Lontué</li>
@@ -53,15 +58,14 @@
               </ul>
               <p>Si no aparece tu localidad no dudes en consultar llamando al +569 89799154.</p>
             </div>
-            <button>Consultar por teléfono</button>
+            <button class="rounded-button--primary width-100">Consultar por teléfono</button>
           </div>
-          <img class="locations-container_map" src="assets/images/fake-map.jpg">
         </div>
       </section>
   
-      <div class="bg-primary-container bg-full-bleed txt-on-primary-container">
-        <section class="section container">
-          <h1 class="txt-primary ft-headline">Comentarios</h1>
+      <div class="bg-primary-container bg-full-bleed txt-on-primary-container p-y-2" id="comments">
+        <section class="container">
+          <h1 class="txt-primary ft-headline m-b-1">Comentarios</h1>
           <div class="ft-body">
             <div class="flex-center-center gap-05">
               <img src="assets/images/fake-comment-profile.jpg" alt="Foto de perfil de persona que comentó.">

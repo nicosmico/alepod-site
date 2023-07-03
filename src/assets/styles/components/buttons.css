@@ -1,0 +1,11 @@
+button.rounded-button,
+button.rounded-button--primary {
+    border: none;
+    border-radius: 100em;
+    padding: .5rem 1rem;
+}
+
+button.rounded-button--primary {
+    background-color: var(--clr-primary);
+    color: var(--clr-on-primary);
+}

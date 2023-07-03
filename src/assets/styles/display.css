@@ -1,7 +1,13 @@
+/* Gaps */
 .gap-05 {
     gap: .5rem;
 }
 
+.gap-1 {
+    gap: 1rem;
+}
+
+/* Flex */
 .flex {
     display: flex;
 }

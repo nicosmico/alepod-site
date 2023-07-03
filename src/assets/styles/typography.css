@@ -19,6 +19,14 @@
   --headline-line-height: 32px;
   --headline-letter-spacing: 0px;
 
+  /* title - small */
+  --title-font-family-name: 'Montserrat', sans-serif;
+  --title-font-family-style: Medium;
+  --title-font-weight: 500px;
+  --title-font-size: 14px;
+  --title-line-height: 20px;
+  --title-letter-spacing: 0.10px;
+
   /* body - small */
   --body-font-family-name: 'Montserrat', sans-serif;
   --body-font-family-style: Regular;
@@ -34,14 +42,6 @@
   --label-font-size: 11px;
   --label-line-height: 16px;
   --label-letter-spacing: 0.50px;
-
-  /* title - small */
-  --title-font-family-name: 'Montserrat', sans-serif;
-  --title-font-family-style: Medium;
-  --title-font-weight: 500px;
-  --title-font-size: 14px;
-  --title-line-height: 20px;
-  --title-letter-spacing: 0.10px;
 }
 
 /* Medium */
@@ -63,6 +63,14 @@
     --headline-line-height: 36px;
     --headline-letter-spacing: 0px;
 
+    /* title - medium */
+    --title-font-family-name: 'Montserrat', sans-serif;
+    --title-font-family-style: Medium;
+    --title-font-weight: 500px;
+    --title-font-size: 16px;
+    --title-line-height: 24px;
+    --title-letter-spacing: 0.15px;
+
     /* body - medium */
     --body-font-family-name: 'Montserrat', sans-serif;
     --body-font-family-style: Regular;
@@ -78,14 +86,6 @@
     --label-font-size: 12px;
     --label-line-height: 16px;
     --label-letter-spacing: 0.50px;
-
-    /* title - medium */
-    --title-font-family-name: 'Montserrat', sans-serif;
-    --title-font-family-style: Medium;
-    --title-font-weight: 500px;
-    --title-font-size: 16px;
-    --title-line-height: 24px;
-    --title-letter-spacing: 0.15px;
   }
 }
 
@@ -96,9 +96,9 @@
     --display-font-family-name: 'Montserrat', sans-serif;
     --display-font-family-style: Regular;
     --display-font-weight: 400px;
-    --display-font-size: 57px;
-    --display-line-height: 64px;
-    --display-letter-spacing: -0.25px;
+    --display-font-size: 64px;
+    --display-line-height: 71px;
+    --display-letter-spacing: 10px;
 
     /* headline - large */
     --headline-font-family-name: 'Montserrat', sans-serif;
@@ -107,6 +107,14 @@
     --headline-font-size: 32px;
     --headline-line-height: 40px;
     --headline-letter-spacing: 0px;
+
+    /* title - large */
+    --title-font-family-name: 'Montserrat', sans-serif;
+    --title-font-family-style: Regular;
+    --title-font-weight: 400px;
+    --title-font-size: 22px;
+    --title-line-height: 28px;
+    --title-letter-spacing: 0px;
 
     /* body - large */
     --body-font-family-name: 'Montserrat', sans-serif;
@@ -123,14 +131,6 @@
     --label-font-size: 14px;
     --label-line-height: 20px;
     --label-letter-spacing: 0.10px;
-
-    /* title - large */
-    --title-font-family-name: 'Montserrat', sans-serif;
-    --title-font-family-style: Regular;
-    --title-font-weight: 400px;
-    --title-font-size: 22px;
-    --title-line-height: 28px;
-    --title-letter-spacing: 0px;
   }
 }
 
@@ -139,8 +139,8 @@
   font-style: var(--display-font-family-style);
   font-weight: var(--display-font-weight);
   font-size: var(--display-font-size);
-  letter-spacing: var(--display-tracking);
-  line-height: var(--display-height);
+  letter-spacing: var(--display-letter-spacing);
+  line-height: var(--display-line-height);
   text-transform: var(--display-text-transform);
   text-decoration: var(--display-text-decoration);
 }
@@ -150,10 +150,21 @@
   font-style: var(--headline-font-family-style);
   font-weight: var(--headline-font-weight);
   font-size: var(--headline-font-size);
-  letter-spacing: var(--headline-tracking);
-  line-height: var(--headline-height);
+  letter-spacing: var(--headline-letter-spacing);
+  line-height: var(--headline-line-height);
   text-transform: var(--headline-text-transform);
   text-decoration: var(--headline-text-decoration);
+}
+
+.ft-title {
+  font-family: var(--title-font-family-name);
+  font-style: var(--title-font-family-style);
+  font-weight: var(--title-font-weight);
+  font-size: var(--title-font-size);
+  letter-spacing: var(--title-letter-spacing);
+  line-height: var(--title-line-height);
+  text-transform: var(--title-text-transform);
+  text-decoration: var(--title-text-decoration);
 }
 
 .ft-body {
@@ -161,8 +172,8 @@
   font-style: var(--body-font-family-style);
   font-weight: var(--body-font-weight);
   font-size: var(--body-font-size);
-  letter-spacing: var(--body-tracking);
-  line-height: var(--body-height);
+  letter-spacing: var(--body-letter-spacing);
+  line-height: var(--body-line-height);
   text-transform: var(--body-text-transform);
   text-decoration: var(--body-text-decoration);
 }
@@ -172,19 +183,8 @@
   font-style: var(--label-font-family-style);
   font-weight: var(--label-font-weight);
   font-size: var(--label-font-size);
-  letter-spacing: var(--label-tracking);
-  line-height: var(--label-height);
+  letter-spacing: var(--label-letter-spacing);
+  line-height: var(--label-line-height);
   text-transform: var(--label-text-transform);
   text-decoration: var(--label-text-decoration);
-}
-
-.ft-title {
-  font-family: var(--font-family-name);
-  font-style: var(--font-family-style);
-  font-weight: var(--font-weight);
-  font-size: var(--font-size);
-  letter-spacing: var(--tracking);
-  line-height: var(--height);
-  text-transform: var(--text-transform);
-  text-decoration: var(--text-decoration);
 }

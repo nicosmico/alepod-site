@@ -1,0 +1,27 @@
+.width-100 {
+    width: 100%;
+}
+
+.width-80 {
+    width: 80%;
+}
+
+.spaced-y-1 > * + * {
+    margin-top: 1rem;
+}
+
+.spaced-y-05 > * + * {
+    margin-top: .5rem;
+}
+
+.p-1 {
+    padding: 1rem;
+}
+
+.p-y-2 {
+    padding-block: 2rem;
+}
+
+.m-b-1 {
+    margin-bottom: 1rem;
+}
