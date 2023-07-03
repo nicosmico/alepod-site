@@ -1,12 +1,17 @@
 :root {
-    --clr-primary: #C28AC7;
-    --clr-on-primary: #FFFBFF;
+    /* --clr-primary: #C28AC7; */
+    --clr-primary: #A756AE;
+    --clr-on-primary: #FFFFFF;
     --clr-secondary: #E8DEF8;
     --clr-on-secondary: #1F1B1F;
     --clr-primary-container: #F7F0F8;
     --clr-on-primary-container: #1F1B1F;
     --clr-background: #FFFBFF;
     --clr-on-background: #1F1B1F;
+
+    /* Fixed colors */
+    --clr-green: #009978;
+    --clr-on-green: #FFFFFF;
 }
 
 /* Text colors */

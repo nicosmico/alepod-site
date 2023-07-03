@@ -21,3 +21,15 @@
     background-color: rgba(0, 0, 0, .5);
     border-radius: 50px;
 }
+
+.comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem;
+    background-color: var(--clr-background);
+    color: var(--clr-on-background);
+    border-radius: 20px;
+    border-end-start-radius: 0;
+}

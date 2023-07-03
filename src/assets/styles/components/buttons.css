@@ -1,11 +1,33 @@
 button.rounded-button,
-button.rounded-button--primary {
+button.rounded-button--primary,
+button.rounded-button--green {
     border: none;
     border-radius: 100em;
     padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
 }
 
 button.rounded-button--primary {
     background-color: var(--clr-primary);
     color: var(--clr-on-primary);
+}
+
+button.rounded-button--green {
+    background-color: var(--clr-green);
+    color: var(--clr-on-green);
+}
+
+button.chip,
+button.chip--secondary {
+    border: none;
+    border-radius: 8px;
+    padding: .4rem .6rem;
+}
+
+button.chip--secondary {
+    background-color: var(--clr-secondary);
+    color: var(--clr-on-secondary);
 }

@@ -55,6 +55,7 @@
     
     .header__text {
         padding-inline: 0;
+        max-width: 50%;
     }
 
     .header__image {
