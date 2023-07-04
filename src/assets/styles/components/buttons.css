@@ -31,3 +31,9 @@ button.chip--secondary {
     background-color: var(--clr-secondary);
     color: var(--clr-on-secondary);
 }
+
+button.rounded-button:hover,
+button.rounded-button--primary:hover,
+button.rounded-button--green:hover {
+    transform: scale(1.025);
+}

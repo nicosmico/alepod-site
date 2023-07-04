@@ -11,22 +11,25 @@
 <body>
   <div class="main-layout">
     <nav class="flex-center-between navbar container bg-primary-container">
-      <img class="navbar__logo" src="assets/images/logo-alepod-square.svg" alt="Logo cuadrado de Alepod.">
       <button class="navbar__toggle" aria-expanded="false"><span class="sr-only">Menu</span></button>
+      <picture>
+        <source media="(min-width: 64rem)" srcset="assets/images/logo-alepod-square.svg">
+        <img class="navbar__logo" src="assets/images/logo-alepod-square-rectangle.svg" alt="Logo cuadrado de Alepod.">
+      </picture>
       <ul class="navbar__list bg-primary txt-on-primary ft-body spaced-y-05" data-visible="false">
-        <li class="navbar__item uppercase"><a href="#home"><span>01</span>Agendar hora</a></li>
-        <li class="navbar__item uppercase"><a href="#locations"><span>02</span>Localidades</a></li>
-        <li class="navbar__item uppercase"><a href="#questions"><span>03</span>Preguntas</a></li>
-        <li class="navbar__item uppercase"><a href="#comments"><span>04</span>Comentarios</a></li>
-        <li class="navbar__item uppercase"><a href="#about-me"><span>05</span>Sobre mi</a></li>
+        <li class="uppercase"><a class="navbar__link active" href="#home"><span>01</span>Agendar hora</a></li>
+        <li class="uppercase"><a class="navbar__link" href="#locations"><span>02</span>Localidades</a></li>
+        <li class="uppercase"><a class="navbar__link" href="#questions"><span>03</span>Preguntas</a></li>
+        <li class="uppercase"><a class="navbar__link" href="#comments"><span>04</span>Comentarios</a></li>
+        <li class="uppercase"><a class="navbar__link" href="#about-me"><span>05</span>Sobre mi</a></li>
       </ul>
     </nav>
   
     <main class="main">
       <div class="bg-primary-container bg-full-bleed txt-on-primary-container" id="home">
         <header class="header">
-          <img class="header__image box-shadow-2" src="assets/images/header-foot.jpg" alt="Fotografía de un pie siendo atentido.">
-          <div class="text-center p-y-2 header__text container">
+          <img class="header__image" src="assets/images/header-foot.jpg" alt="Fotografía de un pie siendo atentido.">
+          <div class="text-center p-y-2-5 header__text container">
             <div>
               <h1 class="uppercase txt-primary ft-display txt-shadow-1">Alepod</h1>
               <p class="ft-title uppercase">Podología clínica a domicilio</p>
@@ -36,11 +39,11 @@
               <p class="ft-body">Atención en Molina y alrededores. Agenda tu hora por Whatsapp o por teléfono.</p>
               <p class="ft-headline">+569 89799154</p>
               <div class="flex-center-between gap-05">
-                <button class="rounded-button--primary ft-title width-100 box-shadow-2">
+                <button class="rounded-button--primary width-100 box-shadow-2">
                   <img src="assets/icons/phone.svg" alt="ícono de llamar">
                   <span>Llamar</span>
                 </button>
-                <button class="rounded-button--green ft-title width-100 box-shadow-2">
+                <button class="rounded-button--green width-100 box-shadow-2">
                   <img src="assets/icons/whatsapp.svg" alt="Ícono de Whatsapp">
                   <span>Whatsapp</span>
                 </button>
@@ -50,7 +53,7 @@
         </header>
       </div>
   
-      <section class="container p-y-2" id="locations">
+      <section class="container p-y-2-5" id="locations">
         <p class="ft-title">¿Dónde atiende?</p>  
         <h1 class="txt-primary ft-headline m-b-1 txt-shadow-1">Localidades</h1>
         <div class="flex-column flex-align-center locations-container gap-1">
@@ -68,11 +71,11 @@
               <p>Si no aparece tu localidad no dudes en consultar.</p>
             </div>
             <div class="flex-center-between gap-05">
-              <button class="rounded-button--primary ft-body width-100 box-shadow-2">
+              <button class="rounded-button--primary width-100 box-shadow-2">
                 <img src="assets/icons/phone.svg" alt="ícono de llamar">
                 <span>Llamar</span>
               </button>
-              <button class="rounded-button--green ft-body width-100 box-shadow-2">
+              <button class="rounded-button--green width-100 box-shadow-2">
                 <img src="assets/icons/whatsapp.svg" alt="Ícono de Whatsapp">
                 <span>Whatsapp</span>
               </button>
@@ -81,7 +84,7 @@
         </div>
       </section>
   
-      <div class="bg-primary-container bg-full-bleed txt-on-primary-container p-y-2" id="comments">
+      <div class="bg-primary-container bg-full-bleed txt-on-primary-container p-y-2-5" id="comments">
         <section class="container">
           <h1 class="txt-primary ft-headline m-b-1 txt-shadow-1">Comentarios</h1>
           <div class="ft-body spaced-y-05">
