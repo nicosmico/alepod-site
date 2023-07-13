@@ -39,7 +39,8 @@
     left: 0;
     z-index: 1;
 
-    padding: 3rem 2rem;
+    padding: 3rem 2.5rem;
+    border-end-end-radius: 20px;
     transition: transform .25s linear;
 }
 
@@ -50,7 +51,7 @@
 .navbar__link span {
     margin-right: .25em;
     font-weight: 500;
-    font-size: calc(var(--body-font-size) + 2px);
+    font-size: calc(var(--title-font-size) + 5px);
 }
 
 .navbar__link {
@@ -77,7 +78,7 @@
     height: 2px;
     background-color: transparent;
     transition-property: background-color, width;
-    transition-duration: .15s, .2s;
+    transition-duration: .08s, .15s;
     transition-timing-function: ease-in;
 }
 
@@ -101,10 +102,16 @@
         min-height: auto;
         padding: 0;
         padding-inline: 1.5rem;
+        transition: none;
     }
 
-    .navbar__list > li {
+    .navbar__link {
         white-space: nowrap;
+        font-size: var(--body-font-title);
+    }
+
+    .navbar__link span {
+        font-size: calc(var(--body-font-size) + 2px);
     }
 
     .navbar__logo {

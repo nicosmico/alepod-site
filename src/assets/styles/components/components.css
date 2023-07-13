@@ -1,6 +1,7 @@
 /* Import components here */
 @import url(./navbar.css);
 @import url(./buttons.css);
+@import url(./inputs.css);
 
 .separator {
     height: .1px;

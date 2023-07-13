@@ -17,36 +17,36 @@
         <img class="navbar__logo" src="assets/images/logo-alepod-square-rectangle.svg" alt="Logo cuadrado de Alepod.">
       </picture>
       <ul class="navbar__list bg-primary txt-on-primary ft-body spaced-y-05" data-visible="false">
-        <li class="uppercase"><a class="navbar__link active" href="#home"><span>01</span>Agendar hora</a></li>
-        <li class="uppercase"><a class="navbar__link" href="#locations"><span>02</span>Localidades</a></li>
-        <li class="uppercase"><a class="navbar__link" href="#questions"><span>03</span>Preguntas</a></li>
-        <li class="uppercase"><a class="navbar__link" href="#comments"><span>04</span>Comentarios</a></li>
-        <li class="uppercase"><a class="navbar__link" href="#about-me"><span>05</span>Sobre mi</a></li>
+        <li><a class="navbar__link uppercase ft-title active" href="#home"><span>01</span>Agendar hora</a></li>
+        <li><a class="navbar__link uppercase ft-title" href="#locations"><span>02</span>Localidades</a></li>
+        <li><a class="navbar__link uppercase ft-title" href="#questions"><span>03</span>Preguntas</a></li>
+        <li><a class="navbar__link uppercase ft-title" href="#comments"><span>04</span>Comentarios</a></li>
+        <li><a class="navbar__link uppercase ft-title" href="#about-me"><span>05</span>Sobre mi</a></li>
       </ul>
     </nav>
   
     <main class="main">
       <div class="bg-primary-container bg-full-bleed txt-on-primary-container" id="home">
-        <header class="header">
+        <header class="header gap-2">
           <img class="header__image" src="assets/images/header-foot.jpg" alt="Fotografía de un pie siendo atentido.">
-          <div class="text-center p-y-2-5 header__text container">
+          <div class="text-center p-y-2-5 header__text container spaced-y-1">
             <div>
               <h1 class="uppercase txt-primary ft-display txt-shadow-1">Alepod</h1>
               <p class="ft-title uppercase">Podología clínica a domicilio</p>
-              <div class="separator"></div>
+              <!-- <div class="separator"></div> -->
             </div>
-            <div class="spaced-y-05">
+            <div class="spaced-y-1">
               <p class="ft-body">Atención en Molina y alrededores. Agenda tu hora por Whatsapp o por teléfono.</p>
               <p class="ft-headline">+569 89799154</p>
               <div class="flex-center-between gap-05">
-                <button class="rounded-button--primary width-100 box-shadow-2">
+                <a class="rounded-button--primary width-100 box-shadow-1" href="tel:+56991759200" target="_blank">
                   <img src="assets/icons/phone.svg" alt="ícono de llamar">
                   <span>Llamar</span>
-                </button>
-                <button class="rounded-button--green width-100 box-shadow-2">
+                </a>
+                <a class="rounded-button--green width-100 box-shadow-1" href="https://wa.me/+56991759200" target="_blank">
                   <img src="assets/icons/whatsapp.svg" alt="Ícono de Whatsapp">
                   <span>Whatsapp</span>
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -59,26 +59,19 @@
         <div class="flex-column flex-align-center locations-container gap-1">
           <img class="locations-container__map b-rad-20 box-shadow-2" src="assets/images/fake-map.jpg">
           <div class="text-center spaced-y-05">
-            <div class="bg-primary-container ft-body p-1 b-rad-20 spaced-y-1 box-shadow-1">
-              <ul class="list-style-none flex-justify-start flex-wrap gap-05">
-                <li><button class="chip--secondary box-shadow-2">Molina</button></li>
-                <li><button class="chip--secondary box-shadow-2">Lontué</button></li>
-                <li><button class="chip--secondary box-shadow-2">Curicó</button></li>
-                <li><button class="chip--secondary box-shadow-2">Pichingal</button></li>
-                <li><button class="chip--secondary box-shadow-2">Los Niches</button></li>
-                <li><button class="chip--secondary box-shadow-2">Cordillerilla</button></li>
-              </ul>
+            <div class="bg-secondary txt-on-secondary ft-body p-1 b-rad-20 spaced-y-1 box-shadow-2">
+              <ul class="location-list list-style-none flex-justify-start flex-wrap gap-05"></ul>
               <p>Si no aparece tu localidad no dudes en consultar.</p>
             </div>
             <div class="flex-center-between gap-05">
-              <button class="rounded-button--primary width-100 box-shadow-2">
+              <a class="rounded-button--primary width-100 box-shadow-1" href="tel:+56991759200" target="_blank">
                 <img src="assets/icons/phone.svg" alt="ícono de llamar">
                 <span>Llamar</span>
-              </button>
-              <button class="rounded-button--green width-100 box-shadow-2">
+              </a>
+              <a class="rounded-button--green width-100 box-shadow-1" href="https://wa.me/+56991759200" target="_blank">
                 <img src="assets/icons/whatsapp.svg" alt="Ícono de Whatsapp">
                 <span>Whatsapp</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>

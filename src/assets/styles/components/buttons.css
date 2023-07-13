@@ -1,6 +1,39 @@
-button.rounded-button,
-button.rounded-button--primary,
-button.rounded-button--green {
+.rounded-button,
+.rounded-button--primary,
+.rounded-button--green,
+.chip,
+.chip--secondary,
+.chip--primary-container {
+    color: inherit;
+    text-decoration: none;
+    transition-property: transform, opacity;
+    transition-duration: .25s, .25s;
+}
+
+.rounded-button:hover,
+.rounded-button--primary:hover,
+.rounded-button--green:hover,
+.chip:hover,
+.chip--secondary:hover,
+.chip--primary-container:hover {
+    transform: translateY(-2px);
+    opacity: .9;
+}
+
+.rounded-button:active,
+.rounded-button--primary:active,
+.rounded-button--green:active,
+.chip:active,
+.chip--secondary:active,
+.chip--primary-container:active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Rounded buttons */
+.rounded-button,
+.rounded-button--primary,
+.rounded-button--green {
     border: none;
     border-radius: 100em;
     padding: .5rem 1rem;
@@ -10,30 +43,32 @@ button.rounded-button--green {
     gap: .5rem;
 }
 
-button.rounded-button--primary {
+.rounded-button--primary {
     background-color: var(--clr-primary);
     color: var(--clr-on-primary);
 }
 
-button.rounded-button--green {
+.rounded-button--green {
     background-color: var(--clr-green);
     color: var(--clr-on-green);
 }
 
-button.chip,
-button.chip--secondary {
+/* Square button (TODO: Rename this) */
+.chip,
+.chip--secondary,
+.chip--primary-container {
     border: none;
     border-radius: 8px;
     padding: .4rem .6rem;
+    font-weight: 500;
 }
 
-button.chip--secondary {
+.chip--secondary {
     background-color: var(--clr-secondary);
     color: var(--clr-on-secondary);
 }
 
-button.rounded-button:hover,
-button.rounded-button--primary:hover,
-button.rounded-button--green:hover {
-    transform: scale(1.025);
+.chip--primary-container {
+    background-color: var(--clr-primary-container);
+    color: var(--clr-on-primary-container);
 }

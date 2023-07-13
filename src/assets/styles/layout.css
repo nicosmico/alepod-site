@@ -34,7 +34,9 @@
 
 /* Header */
 .header__image {
-    width: 100vw;     
+    width: 100vw;   
+    max-height: 300px; 
+    object-fit: cover;
 }
 
 @media (min-width: 48rem) {
@@ -43,7 +45,6 @@
         flex-direction: row-reverse;
         align-items: center;
         justify-content: space-between;
-        gap: 1rem;
         padding-block: 3rem;
 
         /* .container properties */
@@ -56,13 +57,20 @@
     }
 
     .header__image {
-        width: 400px;
-        height: 550px;
-        object-fit: cover;
+        width: 50%;
+        height: 450px;
         border-radius: 20px;
         box-shadow: var(--box-shadow-2);
     }
-    
+}
+
+@media (min-width: 64rem) {
+    .header__image {
+        width: 45%;
+        max-width: 385px;
+        height: 550px;
+        max-height: none;
+    }
 }
 
 /* Locations */
@@ -79,8 +87,7 @@
     }
 
     .locations-container__map {
-        width: 600px;
+        min-width: 45%;
         height: 300px;
-        object-fit: cover;
     }
 }
