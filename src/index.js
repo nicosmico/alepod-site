@@ -1,37 +1,33 @@
 import './assets/styles/styles.css';
 
-function toggleNavbar() {
-  const navbarList = document.querySelector('.navbar__list');
-  const navbarToggle = document.querySelector('.navbar__toggle');
-  if (navbarList?.getAttribute('data-visible') === 'true') {
-    navbarList?.setAttribute('data-visible', false);
-    navbarToggle?.setAttribute('aria-expanded', false);
-  } else {
-    navbarList?.setAttribute('data-visible', true);
-    navbarToggle?.setAttribute('aria-expanded', true);
-  }
-}
+import Navbar from './app/components/navbar';
 
-function styleActiveLink() {
-  const navbarLinks = document.querySelectorAll('.navbar__link');
-  navbarLinks.forEach((link) => {
-    if (link.href === window.location.href) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
-    }
+function main() {
+  const navbar = new Navbar();
+  navbar.init();
+
+  const locations = [
+    'Molina',
+    'Tres Esquinas',
+    'Buena Paz',
+    'Fuente de Agua',
+    'Valdesina',
+    'El Yacal',
+    'Potrero Grande',
+    'Camarico',
+    'Lontué',
+    'Casa Blanca',
+    'Pichingal',
+    'Pedregoso',
+    'Curicó',
+    'Cordillerilla',
+    'Los Niches',
+  ];
+
+  const locationList = document.querySelector('.location-list');
+  locations.forEach((location) => {
+    locationList.innerHTML += `<li><button class="chip--primary-container box-shadow-1">${location}</button></li>`;
   });
 }
 
-function listeners() {
-  const navbarToggle = document.querySelector('.navbar__toggle');
-  navbarToggle?.addEventListener('click', () => {
-    toggleNavbar();
-  });
-
-  window.addEventListener('hashchange', () => {
-    styleActiveLink();
-  });
-}
-
-listeners();
+main();
