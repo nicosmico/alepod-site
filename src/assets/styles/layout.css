@@ -1,5 +1,5 @@
 :root {
-    --container-border: min(2.5%, 2rem);
+    --container-border: min(6%, 2rem);
 }
 
 .container {
@@ -54,6 +54,11 @@
     .header__text {
         padding-inline: 0;
         max-width: 50%;
+    }
+
+    .header__phone-number {
+        font-weight: 500;
+        letter-spacing: 2px;
     }
 
     .header__image {
