@@ -1,0 +1,41 @@
+.styled-details {
+    text-align: center;
+    max-width: 74ch;
+    margin-inline: auto;
+}
+
+/* Summary */
+.styled-details > summary {
+    list-style: none;
+}
+
+.styled-details[open] > summary {
+    margin-bottom: .25rem;
+}
+
+
+/* Summary icon */
+.styled-details > summary::-webkit-details-marker {
+    display: none;
+}
+
+.styled-details .summary-icon {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.styled-details[open] .summary-icon {
+    transform: rotate(90deg);
+}
+
+/* Details body */
+.styled-details > summary + * {
+    transition: transform .2s;
+    transform: translateY(-20px);
+}
+
+.styled-details[open] > summary + * {
+    transform: translateY(0);
+}
+
+/* TODO: por algun mortivo no funcuina el 2do */

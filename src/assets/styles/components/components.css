@@ -2,6 +2,7 @@
 @import url(./navbar.css);
 @import url(./buttons.css);
 @import url(./inputs.css);
+@import url(./others.css);
 
 .separator {
     height: .1px;
@@ -29,8 +30,8 @@
     align-items: center;
     gap: .5rem;
     padding: 1rem;
-    background-color: var(--clr-background);
-    color: var(--clr-on-background);
+    background-color: var(--clr-primary-container);
+    color: var(--clr-on-primary-container);
     border-radius: 20px;
     border-end-start-radius: 0;
 }
