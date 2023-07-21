@@ -3,6 +3,10 @@
 }
 
 /* Gaps */
+.gap-025 {
+    gap: .25rem;
+}
+
 .gap-05 {
     gap: .5rem;
 }
