@@ -26,7 +26,7 @@ function main() {
 
   const locationList = document.querySelector('.location-list');
   locations.forEach((location) => {
-    locationList.innerHTML += `<li><button class="chip--primary-container box-shadow-1">${location}</button></li>`;
+    locationList.innerHTML += `<li><button class="square-button--primary-container box-shadow-1">${location}</button></li>`;
   });
 }
 

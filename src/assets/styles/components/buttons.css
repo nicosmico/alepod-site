@@ -1,9 +1,9 @@
 .rounded-button,
 .rounded-button--primary,
 .rounded-button--green,
-.chip,
-.chip--secondary,
-.chip--primary-container {
+.square-button,
+.square-button--secondary,
+.square-button--primary-container {
     color: inherit;
     text-decoration: none;
     transition-property: transform, opacity;
@@ -13,9 +13,9 @@
 .rounded-button:hover,
 .rounded-button--primary:hover,
 .rounded-button--green:hover,
-.chip:hover,
-.chip--secondary:hover,
-.chip--primary-container:hover {
+.square-button:hover,
+.square-button--secondary:hover,
+.square-button--primary-container:hover {
     transform: translateY(-2px);
     opacity: .9;
 }
@@ -23,9 +23,9 @@
 .rounded-button:active,
 .rounded-button--primary:active,
 .rounded-button--green:active,
-.chip:active,
-.chip--secondary:active,
-.chip--primary-container:active {
+.square-button:active,
+.square-button--secondary:active,
+.square-button--primary-container:active {
     transform: translateY(0);
     opacity: 1;
 }
@@ -53,22 +53,20 @@
     color: var(--clr-on-green);
 }
 
-/* Square button (TODO: Rename this) */
-.chip,
-.chip--secondary,
-.chip--primary-container {
+.square-button,
+.square-button--secondary,
+.square-button--primary-container {
     border: none;
     border-radius: 8px;
     padding: .4rem .6rem;
-    font-weight: 500;
 }
 
-.chip--secondary {
+.square-button--secondary {
     background-color: var(--clr-secondary);
     color: var(--clr-on-secondary);
 }
 
-.chip--primary-container {
+.square-button--primary-container {
     background-color: var(--clr-primary-container);
     color: var(--clr-on-primary-container);
 }
