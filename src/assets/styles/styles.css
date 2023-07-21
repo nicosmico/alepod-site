@@ -6,7 +6,6 @@
 @import url(./layout.css);
 
 body {
-    font-family: 'Montserrat', sans-serif;
     color: var(--clr-on-background);
     background-color: var(--clr-background);
 }
