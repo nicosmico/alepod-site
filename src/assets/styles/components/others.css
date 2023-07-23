@@ -1,22 +1,27 @@
 .styled-details {
-    text-align: center;
     max-width: 74ch;
     margin-inline: auto;
 }
 
-/* Summary */
 .styled-details > summary {
     list-style: none;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    transition: transform .25s linear;
+}
+
+.styled-details > summary::-webkit-details-marker {
+    display: none;
+}
+
+.styled-details > summary:hover {
+    transform: translateY(-1px);
+    opacity: .9;
 }
 
 .styled-details[open] > summary {
     margin-bottom: .25rem;
-}
-
-
-/* Summary icon */
-.styled-details > summary::-webkit-details-marker {
-    display: none;
 }
 
 .styled-details .summary-icon {
@@ -27,15 +32,3 @@
 .styled-details[open] .summary-icon {
     transform: rotate(90deg);
 }
-
-/* Details body */
-.styled-details > summary + * {
-    transition: transform .2s;
-    transform: translateY(-20px);
-}
-
-.styled-details[open] > summary + * {
-    transform: translateY(0);
-}
-
-/* TODO: por algun mortivo no funcuina el 2do */
