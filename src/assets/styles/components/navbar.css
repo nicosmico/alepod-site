@@ -17,16 +17,26 @@
 
     width: 24px;
     height: 24px;
+
+    transition-property: background-image, transform;
+    transition-duration: .25s, .3s;
+    transition-timing-function: linear;
 }
 
 .navbar__toggle[aria-expanded="false"] {
     background-image: url(../../icons/menu.svg);
 }
 
+.navbar__toggle[aria-expanded="false"]:active {
+    transform: scale(1.5, -1);
+}
+
 .navbar__toggle[aria-expanded="true"] {
     background-image: url(../../icons/close-white.svg);
-    transform: rotate(90deg);
-    transition: transform .2s linear;
+}
+
+.navbar__toggle[aria-expanded="true"]:active {
+    transform: scale(1.5, -1);
 }
 
 .navbar__list {
