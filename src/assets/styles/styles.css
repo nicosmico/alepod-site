@@ -4,6 +4,7 @@
 @import url(./utils/utils.css);
 @import url(./components/components.css);
 @import url(./layout.css);
+@import url(./pages/homepage.css);
 
 body {
     color: var(--clr-on-background);

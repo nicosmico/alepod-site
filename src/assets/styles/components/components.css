@@ -2,7 +2,7 @@
 @import url(./navbar.css);
 @import url(./buttons.css);
 @import url(./inputs.css);
-@import url(./others.css);
+@import url(./details.css);
 
 .separator {
     height: .2px;
