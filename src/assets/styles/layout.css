@@ -34,8 +34,7 @@
 
 /* Header */
 .header__image {
-    width: 100vw;   
-    max-height: 250px; 
+    width: 100vw;
     object-fit: cover;
 }
 
@@ -72,9 +71,7 @@
 @media (min-width: 64rem) {
     .header__image {
         width: 45%;
-        max-width: 385px;
         height: 550px;
-        max-height: none;
     }
 }
 
