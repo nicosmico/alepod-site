@@ -1,7 +1,10 @@
 /* Header */
 .header__image {
     width: 100vw;
+    height: 200px;
     object-fit: cover;
+    mask-image: linear-gradient(to bottom, black 75%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent);
 }
 
 @media (min-width: 48rem) {
@@ -30,7 +33,9 @@
         width: 50%;
         height: 450px;
         border-radius: 20px;
-        box-shadow: var(--box-shadow-2);
+
+        mask-image: linear-gradient(to bottom, black 50%, transparent);
+        -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent);
     }
 }
 
