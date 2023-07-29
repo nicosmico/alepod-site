@@ -117,11 +117,12 @@
 
     .navbar__list {
         position: static;
-        min-height: auto;
+        min-height: unset;
+        width: unset;
         padding: 0;
         padding-inline: 1.5rem;
         transition: none;
-        width: unset;
+        gap: .5rem;
     }
 
     .navbar__link {
