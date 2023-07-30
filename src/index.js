@@ -44,8 +44,6 @@ function main() {
   GooglePlaces.getReviews().then((data) => {
     const reviews = document.querySelector('.reviews');
     data.forEach((review) => {
-      // eslint-disable-next-line no-param-reassign
-      review.review.rating = 4;
       if (review.review.rating >= 4 && review.review.content) {
         reviews.innerHTML += `<div class="comment box-shadow-2 spaced-y-05">
           <div class="flex-align-center gap-05">
