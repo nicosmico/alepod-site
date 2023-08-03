@@ -1,15 +1,14 @@
 import './assets/styles/styles.css';
 
-import Navbar from './app/components/navbar';
 import GooglePlaces from './app/components/services/google-places';
 
 // Images
 import star from './assets/icons/star.svg';
 import starFilled from './assets/icons/star-filled.svg';
+import defineWebComponents from './app/components/components';
 
 function main() {
-  const navbar = new Navbar();
-  navbar.init();
+  defineWebComponents();
 
   const locations = [
     'Molina',

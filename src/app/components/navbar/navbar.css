@@ -19,24 +19,24 @@
     height: 24px;
 
     transition-property: background-image, transform;
-    transition-duration: .25s, .3s;
+    transition-duration: .25s, .2s;
     transition-timing-function: linear;
 }
 
 .navbar__toggle[aria-expanded="false"] {
-    background-image: url(../../icons/menu.svg);
+    background-image: url(/src/assets/icons/menu.svg);
 }
 
 .navbar__toggle[aria-expanded="false"]:active {
-    transform: scale(1.5, -1);
+    transform: rotate(180deg);
 }
 
 .navbar__toggle[aria-expanded="true"] {
-    background-image: url(../../icons/close-white.svg);
+    background-image: url(/src/assets/icons/close-white.svg);
 }
 
 .navbar__toggle[aria-expanded="true"]:active {
-    transform: scale(1.5, -1);
+    transform: rotate(-180deg);
 }
 
 .navbar__list {

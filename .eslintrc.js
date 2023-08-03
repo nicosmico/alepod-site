@@ -30,5 +30,7 @@ module.exports = {
         ],
       },
     ],
+    'no-underscore-dangle': 'off',
+    'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
   },
 };
