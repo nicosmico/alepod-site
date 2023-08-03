@@ -72,9 +72,16 @@ export default class Navbar extends BaseWebComponent {
   }
 
   updateActiveLink() {
+    const url = new URL(window.location.href);
+    const { hash } = url;
+
+    if (!hash) {
+      this.menuLinks[0].classList.add('active');
+      return;
+    }
+
     this.menuLinks.forEach((link) => {
-      const active = link.href === window.location.href;
-      if (active) {
+      if (link.href === window.location.href) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
