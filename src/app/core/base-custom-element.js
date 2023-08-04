@@ -1,6 +1,4 @@
-// TODO: Use shadow dom
-
-export default class BaseWebComponent extends HTMLElement {
+export default class BaseCustomElement extends HTMLElement {
   // Set defaults or perform other pre-rendering processes.
   constructor() {
     super();

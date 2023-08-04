@@ -1,11 +1,11 @@
-import BaseWebComponent from '../../core/base-web-component';
+import BaseCustomElement from '../../core/base-custom-element';
 import './navbar.css';
 import logoAlepodSquare from '../../../assets/images/logo-alepod-square.svg';
 
 // TODO: Extends native nav element:
 // customElements.define('main-navbar', Navbar, { extends: 'nav' });
 // <nav is="main-navbar" class="flex-center-between navbar container bg-primary-container"></nav>
-export default class Navbar extends BaseWebComponent {
+export default class Navbar extends BaseCustomElement {
   toggleButton = null;
   menuList = null;
 
