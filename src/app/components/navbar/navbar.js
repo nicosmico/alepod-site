@@ -1,5 +1,6 @@
 import BaseWebComponent from '../../core/base-web-component';
 import './navbar.css';
+import logoAlepodSquare from '../../../assets/images/logo-alepod-square.svg';
 
 // TODO: Extends native nav element:
 // customElements.define('main-navbar', Navbar, { extends: 'nav' });
@@ -13,7 +14,7 @@ export default class Navbar extends BaseWebComponent {
     this.htmlTemplate = () => `
     <nav class="flex-center-between navbar container bg-primary-container">
       <button class="navbar__toggle" aria-expanded="false"><span class="sr-only">Menu</span></button>
-      <img class="navbar__logo" src="assets/images/logo-alepod-square.svg" alt="Logo cuadrado de Alepod.">
+      <img class="navbar__logo" src="${logoAlepodSquare}" alt="Logo cuadrado de Alepod.">
 
       <ul class="navbar__list bg-primary txt-on-primary flex-column gap-2" data-visible="false">
         <li><a class="navbar__link uppercase ft-headline active" href="#home">
