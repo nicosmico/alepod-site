@@ -1,6 +1,6 @@
 import './assets/styles/styles.css';
 
-import GooglePlaces from './app/components/services/google-places';
+import GooglePlaces from './app/services/google-places';
 
 // Images
 import star from './assets/icons/star.svg';
