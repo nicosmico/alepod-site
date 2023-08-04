@@ -2,9 +2,6 @@ import BaseCustomElement from '../../core/base-custom-element';
 import './navbar.css';
 import logoAlepodSquare from '../../../assets/images/logo-alepod-square.svg';
 
-// TODO: Extends native nav element:
-// customElements.define('main-navbar', Navbar, { extends: 'nav' });
-// <nav is="main-navbar" class="flex-center-between navbar container bg-primary-container"></nav>
 export default class Navbar extends BaseCustomElement {
   toggleButton = null;
   menuList = null;
@@ -12,7 +9,6 @@ export default class Navbar extends BaseCustomElement {
   constructor() {
     super();
     this.htmlTemplate = () => `
-    <nav class="flex-center-between navbar container bg-primary-container">
       <button class="navbar__toggle" aria-expanded="false"><span class="sr-only">Menu</span></button>
       <img class="navbar__logo" src="${logoAlepodSquare}" alt="Logo cuadrado de Alepod.">
 
@@ -33,7 +29,6 @@ export default class Navbar extends BaseCustomElement {
           <span>05</span>Sobre mi
         </a></li>
       </ul>
-    </nav>
     `;
   }
 
