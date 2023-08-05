@@ -1,11 +1,8 @@
 export default class GooglePlaces {
-  static getReviews() {
-    const requestOptions = {
-      method: 'GET',
-    };
-    return fetch('https://google-places-api-qpqs.onrender.com/', requestOptions)
-      .then((response) => response.json())
-      .then((result) => result)
-      .catch((error) => console.error('error', error));
+  apiUrl = 'https://google-places-api-qpqs.onrender.com/';
+
+  getReviews() {
+    return fetch(this.apiUrl)
+      .then((response) => response.json());
   }
 }

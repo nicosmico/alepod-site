@@ -1,0 +1,46 @@
+[
+  {
+    "user": {
+      "name": "Gisselle Pereira",
+      "picture": "https://lh3.googleusercontent.com/a/AAcHTtdHqTtZkKfIcfFQIDYwubfgwYmVNHNLkv_suvDhMXiv=s120-c-rp-mo-br100"
+    },
+    "review": {
+      "since": "Hace 2 meses",
+      "content": "Excelente profesional, cariñosa, dedicada, responsable, llevó más de un año en tratamiento con la podologa, recomendable 100%",
+      "rating": 5
+    }
+  },
+  {
+    "user": {
+      "name": "Amanda Bustamante",
+      "picture": "https://lh3.googleusercontent.com/a-/AD_cMMTFAdINfqCgVkp6cPV8bFvVK1VA08zgsKfYl7kKtUkXWAw=s120-c-rp-mo-br100"
+    },
+    "review": {
+      "since": "Hace 5 meses",
+      "content": "Excelente atención, sus procedimientos me ayudaron a sanar mis pies y uñas.\nGentil y muy buena profesional.",
+      "rating": 5
+    }
+  },
+  {
+    "user": {
+      "name": "Juan Carlos Garrido Arenas",
+      "picture": "https://lh3.googleusercontent.com/a/AAcHTtd-c7iBHeupZH2pcELuRkzM1b8YhUf8KQYCv3br-SZq=s120-c-rp-mo-br100"
+    },
+    "review": {
+      "since": "Hace un año",
+      "content": "Exelente profesional con atencion esmerada",
+      "rating": 5
+    }
+  },
+  {
+    "user": {
+      "name": "lorena maraboli fernandez",
+      "picture": "https://lh3.googleusercontent.com/a/AAcHTtffnVswRNGeSaeTkuqnMnbdWMPjDsH6tzcWt3D0V5RV=s120-c-rp-mo-br100"
+    },
+    "review": {
+      "since": "Hace un año",
+      "content": "Excelente professional , muy buena atención.",
+      "rating": 5
+    }
+  }
+]
