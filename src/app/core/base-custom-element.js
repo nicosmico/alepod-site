@@ -1,56 +1,88 @@
+/**
+ * BaseCustomElement - A custom element base to provide common functionality for custom elements.
+ */
 export default class BaseCustomElement extends HTMLElement {
+  config = {};
+
   /**
-   * HTML ELEMENT METHODS
+   * Creates a new BaseCustomElement.
+   * Set defaults or perform other pre-rendering processes.
+   *
+   * @param {Object} config - Base configuration.
+   * @param {string[]} config.reactiveProperties - Declare reactive properties.
    */
+  constructor(config = {}) {
+    super();
+    this.config = config;
+  }
 
-  // Set defaults or perform other pre-rendering processes.
-  // constructor() {
-  //   super();
-  // }
-
-  // Executed when the component is added to the DOM
+  /**
+   * (HTMLElement) Executed when the component is added to the DOM.
+   * Excecute afterFirstRender that can be override by child class.
+   * Excecute reactiveProperties after first render method.
+   */
   connectedCallback() {
     this._render();
     if (this.afterFirstRender) this.afterFirstRender();
+    if (this.config.reactiveProperties) this.reactiveProperties(this.config.reactiveProperties);
   }
 
-  // Executed when the component is removed from the DOM
+  /**
+   * (HTMLElement) Executed when the component is removed from the DOM
+   */
   // disconnectedCallback() {
   // }
 
-  // Method to declare atributes to observe on changes
+  /**
+   * (HTMLElement) Method to declare attributes to observe on changes.
+   * @returns {string[]} An array of attribute names to observe.
+   */
   static get observedAttributes() {
     return [];
   }
 
-  // Executed when any attribute of the component changes
-  // Use this.setAttribute('attributeName', 'New value hehe'); to execute this callback
+  /**
+   * (HTMLElement) Executed when any attribute of the component changes.
+   * Use this.setAttribute('attributeName', 'New value hehe'); to execute this callback.
+   *
+   * @param {string} name - The name of the changed attribute.
+   * @param {string} oldValue - The previous value of the attribute.
+   * @param {string} newValue - The new value of the attribute.
+   */
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue === newValue) return;
     this[name] = newValue;
     this._render();
   }
 
-  // Logic executed when the component is moved to a new document
+  /**
+   * (HTMLElement) Logic executed when the component is moved to a new document
+   */
   // adoptedCallback() {
   // }
 
   /**
-   * CUSTOM METHODS
+   * Define template to render.
+   *
+   * @returns {string} The template to render.
    */
-
-  // Define template to render
   render() {
     return `${this.localName} works!`;
   }
 
-  // Render template
+  /**
+   * Render template.
+   */
   _render() {
     // console.log(`${this.localName} -> _render()`);
     this.innerHTML = this.render();
   }
 
-  // Define properties to observe and render the component when they change
+  /**
+   * Define properties to observe and render the component when they change.
+   *
+   * @param {string[]} props - An array of property names to observe.
+   */
   reactiveProperties(props) {
     props.forEach((prop) => {
       const name = prop.toString();

@@ -7,30 +7,36 @@ import mockReviews from '../../mock/google-reviews.json';
 export default class GoogleReviews extends BaseCustomElement {
   reviews = mockReviews;
   googlePlaces = new GooglePlaces();
-  reviewTemplate = (review) => `
-  <div class="comment box-shadow-2 spaced-y-05">
-    <div class="flex-align-center gap-05">
-      <img class="comment__avatar" src="${review.user.picture}" alt="Foto de perfil de cliente.">
-      <div>
-        <p class="txt-shadow-1 f-weight-500">${review.user.name}</p>
-        <div class="flex-align-center gap-05">
-          <p class="ft-label">${review.review.since}</p>
-          <p class="ft-label flex">${this.getStarRanking(review.review.rating)}</p>
-        </div>
-      </div>
-    </div>
-    <p>“${review.review.content}”</p>
-  </div>`;
+
+  constructor() {
+    super({ reactiveProperties: ['reviews'] });
+  }
 
   afterFirstRender() {
-    this.reactiveProperties(['reviews']);
     this.getGoogleReviews().then((data) => {
       this.reviews = data;
     });
   }
 
   render() {
-    return this.reviews.map((review) => this.reviewTemplate(review)).join('');
+    return this.reviews.map((review) => this.getReviewTemplate(review)).join('');
+  }
+
+  getReviewTemplate(review) {
+    return `
+    <div class="comment box-shadow-2 spaced-y-05">
+      <div class="flex-align-center gap-05">
+        <img class="comment__avatar" src="${review.user.picture}" alt="Foto de perfil de cliente.">
+        <div>
+          <p class="txt-shadow-1 f-weight-500">${review.user.name}</p>
+          <div class="flex-align-center gap-05">
+            <p class="ft-label">${review.review.since}</p>
+            <p class="ft-label flex">${this.getStarRanking(review.review.rating)}</p>
+          </div>
+        </div>
+      </div>
+      <p>“${review.review.content}”</p>
+    </div>`;
   }
 
   getStarRanking(ranking) {
