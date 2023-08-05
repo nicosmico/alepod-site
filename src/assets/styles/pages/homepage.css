@@ -46,21 +46,3 @@
     }
 }
 
-/* Locations */
-.locations-container__map {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-@media (min-width: 48rem) {
-    .locations-container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .locations-container__map {
-        min-width: 45%;
-        height: 300px;
-    }
-}

@@ -1,0 +1,25 @@
+.location-list {
+    gap: .15rem;
+}
+
+.location-list > li {
+    width: min-content;
+    white-space: nowrap;
+}
+
+.locations-map-container {
+    width: 100%;
+    height: 400px;
+    z-index: 0;
+}
+
+@media (min-width: 48rem) {
+    .locations-map-container {
+        min-width: 45%;
+        height: 450px;
+    }
+
+    .location-list {
+        gap: .5rem;
+    }
+}
