@@ -41,7 +41,7 @@ export default class BaseCustomElement extends HTMLElement {
 
   // Define template to render
   render() {
-    this.htmlTemplate = () => `${this.localName} works!`;
+    return `${this.localName} works!`;
   }
 
   // Render template
