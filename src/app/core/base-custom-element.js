@@ -1,14 +1,8 @@
 export default class BaseCustomElement extends HTMLElement {
   // Set defaults or perform other pre-rendering processes.
-  constructor() {
-    super();
-
-    // Custom
-    this.htmlTemplate = () => `${this.localName} works!`;
-    this._render = () => {
-      this.innerHTML = this.htmlTemplate();
-    };
-  }
+  // constructor() {
+  //   super();
+  // }
 
   // Executed when the component is added to the DOM
   connectedCallback() {
@@ -35,4 +29,12 @@ export default class BaseCustomElement extends HTMLElement {
   // Logic executed when the component is moved to a new document
   // adoptedCallback() {
   // }
+
+  render() {
+    this.htmlTemplate = () => `${this.localName} works!`;
+  }
+
+  _render() {
+    this.innerHTML = this.render();
+  }
 }

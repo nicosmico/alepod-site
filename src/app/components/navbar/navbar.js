@@ -6,9 +6,8 @@ export default class Navbar extends BaseCustomElement {
   toggleButton = null;
   menuList = null;
 
-  constructor() {
-    super();
-    this.htmlTemplate = () => `
+  render() {
+    return `
       <button class="navbar__toggle" aria-expanded="false"><span class="sr-only">Menu</span></button>
       <img class="navbar__logo" src="${logoAlepodSquare}" alt="Logo cuadrado de Alepod.">
 
@@ -29,7 +28,7 @@ export default class Navbar extends BaseCustomElement {
           <span>05</span>Sobre mi
         </a></li>
       </ul>
-    `;
+  `;
   }
 
   afterFirstRender() {
