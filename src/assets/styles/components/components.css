@@ -21,21 +21,3 @@
     background-color: var(--clr-on-primary-container);
     border-radius: 50px;
 }
-
-.comment {
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* gap: .5rem; */
-    padding: 1rem;
-    background-color: var(--clr-primary-container);
-    color: var(--clr-on-primary-container);
-    border-radius: 20px;
-    border-end-start-radius: 0;
-}
-
-.comment__avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
-}

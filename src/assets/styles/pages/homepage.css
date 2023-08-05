@@ -64,9 +64,3 @@
         height: 300px;
     }
 }
-
-/* Comments */
-.comment__star {
-    width: var(--label-font-size);
-    height: var(--label-font-size);
-}

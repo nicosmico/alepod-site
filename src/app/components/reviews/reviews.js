@@ -3,6 +3,7 @@ import starFilled from '../../../assets/icons/star-filled.svg';
 import GooglePlaces from '../../services/google-places';
 import BaseCustomElement from '../../core/base-custom-element';
 import mockReviews from '../../mock/google-reviews.json';
+import './reviews.css';
 
 export default class GoogleReviews extends BaseCustomElement {
   reviews = mockReviews;
