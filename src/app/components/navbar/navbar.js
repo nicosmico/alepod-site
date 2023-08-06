@@ -9,7 +9,7 @@ export default class Navbar extends BaseCustomElement {
 
   render() {
     return `
-    <p class="navbar__title txt-primary">ALEPOD</p>
+    <p class="navbar__title txt-primary f-family-sans-2">ALEPOD</p>
     <img class="navbar__logo" src="${logoAlepodSquare}" alt="Logo cuadrado de Alepod.">
     <button class="navbar__toggle" aria-expanded="false"><span class="sr-only">Menu</span></button>
 

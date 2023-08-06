@@ -206,6 +206,10 @@ body {
   font-family: var(--font-family-sans-serif-1);
 }
 
+.f-family-sans-2 {
+  font-family: var(--font-family-sans-serif-2);
+}
+
 .f-weight-500 {
   font-weight: 500;
 }
