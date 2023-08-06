@@ -34,10 +34,10 @@ export default class Navbar extends BaseCustomElement {
   }
 
   afterFirstRender() {
-    this.toggleButton = document.querySelector('.navbar__toggle');
-    this.menuList = document.querySelector('.navbar__list');
-    this.menuLinks = document.querySelectorAll('.navbar__link');
-    this.navbarTitle = document.querySelector('.navbar__title');
+    this.toggleButton = this.querySelector('.navbar__toggle');
+    this.menuList = this.querySelector('.navbar__list');
+    this.menuLinks = this.querySelectorAll('.navbar__link');
+    this.navbarTitle = this.querySelector('.navbar__title');
     this.updateActiveLink();
 
     this.toggleButton.addEventListener('click', () => {
