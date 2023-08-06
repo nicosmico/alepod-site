@@ -3,8 +3,12 @@
 }
 
 .location-list > li {
-    width: min-content;
+    flex-grow: 1;
+}
+
+.location-list > li > button {
     white-space: nowrap;
+    width: 100%;
 }
 
 .locations-map-container {
