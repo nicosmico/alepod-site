@@ -124,7 +124,13 @@ export default class LocationsMap extends BaseCustomElement {
       `).join('');
 
     return `
-      <p class="callout m-b-1"><span>✨</span> Las localidades son solo referenciales, si no aparece tu localidad no dudes en consultar.</p>
+      <div class="callout m-b-1">
+        <div>✨</div>
+        <div>
+          <p class="f-weight-500">Explora en el mapa las zonas donde atiendo con frecuencia.</p>
+          <p class="ft-label">Las zonas solo son referenciales, si no aparece tu localidad <span class="f-weight-500">no dudes en consultar.</span></p>
+        </div>
+      </div>
       <ul class="location-list list-style-none flex-justify-start flex-wrap">${locationsEl}</ul>
       <div id="map" class="locations-map-container b-rad-20"></div>
     `;
@@ -198,9 +204,16 @@ export default class LocationsMap extends BaseCustomElement {
   }
 
   autoSelectLocation() {
+    // Stop if user interact with the map
+    ['click', 'mousedown', 'mouseup'].forEach((e) => {
+      this.map.addEventListener(e, () => {
+        this.manualSelection = true;
+      });
+    });
+
+    // Auto select locations
     let index = 0;
     const autoSelect = setInterval(() => {
-      console.log('autoSelectLocation');
       if (this.manualSelection) {
         clearInterval(autoSelect);
         return;
