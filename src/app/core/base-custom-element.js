@@ -35,6 +35,7 @@ export default class BaseCustomElement extends HTMLElement {
 
   /**
    * (HTMLElement) Method to declare attributes to observe on changes.
+   * Atributte's name can't have mayus. Format: simple or simple-with-dash
    * @returns {string[]} An array of attribute names to observe.
    */
   static get observedAttributes() {
