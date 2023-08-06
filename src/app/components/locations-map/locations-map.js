@@ -172,6 +172,7 @@ export default class LocationsMap extends BaseCustomElement {
     const locationButton = this.locationButtons[locationIndex];
     locationButton.classList.remove('button--blue');
     locationButton.classList.add('button--primary');
+    locationButton.classList.add('button--hover');
     this.map.setView(location.coords, location.zoom);
     return this.drawCirle(location.name, location.coords, location.radius, true);
   }
@@ -179,6 +180,7 @@ export default class LocationsMap extends BaseCustomElement {
   unfocusLocation(locationIndex, layer) {
     const locationButton = this.locationButtons[locationIndex];
     locationButton.classList.remove('button--primary');
+    locationButton.classList.remove('button--hover');
     locationButton.classList.add('button--blue');
     this.removeMapLayer(layer);
   }
