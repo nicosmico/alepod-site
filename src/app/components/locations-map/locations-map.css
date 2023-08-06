@@ -11,7 +11,7 @@
     width: 100%;
 }
 
-.locations-map-container {
+.locations-map {
     width: 100%;
     height: 400px;
     z-index: 0;

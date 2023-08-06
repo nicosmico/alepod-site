@@ -132,13 +132,14 @@ export default class LocationsMap extends BaseCustomElement {
         </div>
       </div>
       <ul class="location-list list-style-none flex-justify-start flex-wrap">${locationsEl}</ul>
-      <div id="map" class="locations-map-container b-rad-20 box-shadow-1"></div>
+      <div class="locations-map b-rad-20 box-shadow-1"></div>
     `;
   }
 
   afterFirstRender() {
     // Init map
-    this.map = L.map('map').setView(this.origin.coords, 10);
+    const mapSelector = this.querySelector('.locations-map');
+    this.map = L.map(mapSelector).setView(this.origin.coords, 10);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '© OpenStreetMap',
@@ -149,7 +150,7 @@ export default class LocationsMap extends BaseCustomElement {
     this.autoSelectLocation();
 
     // Listen location buttons clicks
-    this.locationButtons = document.querySelectorAll('.location-button');
+    this.locationButtons = this.querySelectorAll('.location-button');
     this.locationButtons.forEach((button) => {
       button.addEventListener('click', (e) => {
         this.manualSelection = true;
