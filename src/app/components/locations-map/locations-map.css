@@ -21,8 +21,4 @@
     .location-list {
         gap: .5rem;
     }
-
-    .locations-map-container {
-        height: 430px;
-    }
 }

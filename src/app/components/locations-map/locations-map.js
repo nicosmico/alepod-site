@@ -132,7 +132,7 @@ export default class LocationsMap extends BaseCustomElement {
         </div>
       </div>
       <ul class="location-list list-style-none flex-justify-start flex-wrap">${locationsEl}</ul>
-      <div id="map" class="locations-map-container b-rad-20"></div>
+      <div id="map" class="locations-map-container b-rad-20 box-shadow-1"></div>
     `;
   }
 
