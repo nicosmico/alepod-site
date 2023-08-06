@@ -16,7 +16,7 @@
         padding-block: 3rem;
 
         /* .container properties */
-        padding-inline: var(--container-border);
+        padding-inline: var(--container-space);
     }
     
     .header__text {

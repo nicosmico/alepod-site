@@ -1,9 +1,9 @@
 :root {
-    --container-border: min(6%, 2rem);
+    --container-space: min(6%, 2rem);
 }
 
 .container {
-    padding-inline: var(--container-border);
+    padding-inline: var(--container-space);
 }
 
 @media (min-width: 64rem) {
