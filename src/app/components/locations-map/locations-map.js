@@ -9,6 +9,9 @@ import 'leaflet/dist/leaflet.css';
 
 export default class LocationsMap extends BaseCustomElement {
   map = null;
+  manualSelection = false;
+  currentLocation = null; // { index: number, layer: L.Circle }
+
   origin = {
     name: null,
     coords: [-35.116206612939614, -71.2835424547279],
@@ -60,12 +63,6 @@ export default class LocationsMap extends BaseCustomElement {
       zoom: 12,
     },
     {
-      name: 'Camarico',
-      coords: [-35.22014478779119, -71.42311218417215],
-      radius: 3000,
-      zoom: 12,
-    },
-    {
       name: 'Lontué',
       coords: [-35.05627034478617, -71.26958577818152],
       radius: 3000,
@@ -90,12 +87,6 @@ export default class LocationsMap extends BaseCustomElement {
       zoom: 12,
     },
     {
-      name: 'Curicó',
-      coords: [-34.97602300490149, -71.23422608272696],
-      radius: 3000,
-      zoom: 12,
-    },
-    {
       name: 'Cordillerilla',
       coords: [-35.12364208512587, -71.14732308050735],
       radius: 3000,
@@ -107,56 +98,124 @@ export default class LocationsMap extends BaseCustomElement {
       radius: 3000,
       zoom: 12,
     },
+    {
+      name: 'Curicó',
+      coords: [-34.97602300490149, -71.23422608272696],
+      radius: 3000,
+      zoom: 12,
+    },
+    {
+      name: 'Camarico',
+      coords: [-35.22014478779119, -71.42311218417215],
+      radius: 3000,
+      zoom: 12,
+    },
   ];
+
+  locationButtons = [];
 
   render() {
     const locationsEl = this.locations.map((location, index) => `
       <li>
-        <button class="location-button square-button--primary-container box-shadow-2" value="${index}">
+        <button class="location-button square-button button--blue box-shadow-2" value="${index}">
           ${location.name}
         </button>
       </li>
       `).join('');
 
     return `
-      <ul class="location-list list-style-none flex-justify-start flex-wrap m-b-1">${locationsEl}</ul>
+      <p class="callout m-b-1"><span>✨</span> Las localidades son solo referenciales, si no aparece tu localidad no dudes en consultar.</p>
+      <ul class="location-list list-style-none flex-justify-start flex-wrap">${locationsEl}</ul>
       <div id="map" class="locations-map-container b-rad-20"></div>
     `;
   }
 
   afterFirstRender() {
-    const locationButtons = document.querySelectorAll('.location-button');
-    locationButtons.forEach((button) => {
-      button.addEventListener('click', (e) => {
-        const locationIndex = e.target.value;
-        const location = this.locations[locationIndex];
-        this.map.setView(location.coords, location.zoom);
-        this.drawCirle(location.name, location.coords, location.radius, true);
-      });
-    });
-
     // Init map
     this.map = L.map('map').setView(this.origin.coords, 10);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '© OpenStreetMap',
     }).addTo(this.map);
-
     this.drawCirle(this.origin.name, this.origin.coords, this.origin.radius, false);
+
+    // Select locations automatically
+    this.autoSelectLocation();
+
+    // Listen location buttons clicks
+    this.locationButtons = document.querySelectorAll('.location-button');
+    this.locationButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        this.manualSelection = true;
+
+        // Restore previous location state
+        if (this.currentLocation) {
+          this.unfocusLocation(this.currentLocation.index, this.currentLocation.layer);
+        }
+
+        // Focus new location
+        const index = e.target.value;
+        const layer = this.focusLocation(index);
+        this.currentLocation = { index, layer };
+      });
+    });
+  }
+
+  focusLocation(locationIndex) {
+    const location = this.locations[locationIndex];
+    const locationButton = this.locationButtons[locationIndex];
+    locationButton.classList.remove('button--blue');
+    locationButton.classList.add('button--primary');
+    this.map.setView(location.coords, location.zoom);
+    return this.drawCirle(location.name, location.coords, location.radius, true);
+  }
+
+  unfocusLocation(locationIndex, layer) {
+    const locationButton = this.locationButtons[locationIndex];
+    locationButton.classList.remove('button--primary');
+    locationButton.classList.add('button--blue');
+    this.removeMapLayer(layer);
   }
 
   drawCirle(popup, coords, radius, diff) {
-    const clrPrimary = 'var(--clr-primary)';
-    const clrSecondary = 'var(--clr-secondary)';
+    const regularClr = 'var(--clr-blue)';
+    const diffColor = 'var(--clr-primary)';
     const circle = L.circle(coords, {
-      color: diff ? clrPrimary : clrSecondary,
-      fillColor: diff ? clrPrimary : clrSecondary,
-      fillOpacity: diff ? 0 : 0.3,
+      color: diff ? diffColor : regularClr,
+      fillColor: diff ? diffColor : regularClr,
+      fillOpacity: diff ? 0.15 : 0.075,
       radius,
     }).addTo(this.map);
 
     if (popup) {
       circle.bindPopup(popup);
     }
+    return circle;
+  }
+
+  removeMapLayer(layer) {
+    this.map.removeLayer(layer);
+  }
+
+  autoSelectLocation() {
+    let index = 0;
+    const autoSelect = setInterval(() => {
+      console.log('autoSelectLocation');
+      if (this.manualSelection) {
+        clearInterval(autoSelect);
+        return;
+      }
+
+      // Restore previous location state
+      if (this.currentLocation) {
+        this.unfocusLocation(this.currentLocation.index, this.currentLocation.layer);
+      }
+
+      // Focus new location
+      const layer = this.focusLocation(index);
+      this.currentLocation = { index, layer };
+
+      index = index < this.locations.length - 1 ? index + 1 : 0;
+    }, 3000);
   }
 }
