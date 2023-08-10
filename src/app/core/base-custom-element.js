@@ -2,30 +2,17 @@
  * BaseCustomElement - A custom element base to provide common functionality for custom elements.
  */
 export default class BaseCustomElement extends HTMLElement {
-  config = {};
-
-  /**
-   * Creates a new BaseCustomElement.
-   * Set defaults or perform other pre-rendering processes.
-   *
-   * @param {Object} config - Base configuration.
-   * @param {Object} config.reactiveProperties - Declare reactive properties.
-   *  { jsPropertyName: 'html-attribute-name' }
-   */
-  constructor(config = {}) {
-    super();
-    this.config = config;
-  }
+  // constructor() {
+  //   super();
+  // }
 
   /**
    * (HTMLElement) Executed when the component is added to the DOM.
    * Excecute afterFirstRender that can be override by child class.
-   * Excecute reactiveProperties after first render method.
    */
   connectedCallback() {
-    this._render();
+    this.render();
     if (this.afterFirstRender) this.afterFirstRender();
-    if (this.config.reactiveProperties) this.reactiveProperties(this.config.reactiveProperties);
   }
 
   /**
@@ -53,9 +40,8 @@ export default class BaseCustomElement extends HTMLElement {
    */
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue === newValue) return;
-    const propertyname = this.config.reactiveProperties[name] || name;
-    this[propertyname] = newValue;
-    this._render();
+    this[name] = newValue;
+    this.render();
   }
 
   /**
@@ -69,41 +55,29 @@ export default class BaseCustomElement extends HTMLElement {
    *
    * @returns {string} The template to render.
    */
-  render() {
+  renderTemplate() {
     return `${this.localName} works!`;
   }
 
   /**
-   * Render template.
+   * Render the defined template
    */
-  _render() {
-    // console.log(`${this.localName} -> _render()`);
-    this.innerHTML = this.render();
+  render() {
+    // console.log(`${this.localName} -> render()`);
+    this.innerHTML = this.renderTemplate();
   }
 
   /**
-   * Define properties to observe and render the component when they change.
-   *
-   * @param {Object} props - An array of property names to observe.
+   * Return a getter and setter to render when value change
    */
-  reactiveProperties(props) {
-    Object.keys(props).forEach((prop) => {
-      const name = prop.toString();
-
-      // Store initial value in '_property' before overwriting it with get/set
-      this[`_${name}`] = this[prop];
-
-      Object.defineProperty(this, name, {
-        set(value) {
-          // console.log(`SET ${this.localName}.${name} -> _render()`);
-          this[`_${name}`] = value;
-          this._render();
-        },
-        get() {
-        // console.log(`GET ${this.localName}.${name}`);
-          return this[`_${name}`];
-        },
-      });
-    });
+  createSetter(defaultValue) {
+    let value = defaultValue;
+    const getValue = () => value;
+    const setValue = (newValue) => {
+      // console.log('setValue: ', value, newValue);
+      value = newValue;
+      this.render();
+    };
+    return [getValue, setValue];
   }
 }

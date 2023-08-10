@@ -114,7 +114,7 @@ export default class LocationsMap extends BaseCustomElement {
     },
   ];
 
-  render() {
+  renderTemplate() {
     const locationsEl = this.locations.map((location, index) => `
       <li>
         <button class="location-button square-button button--blue box-shadow-2" value="${index}">

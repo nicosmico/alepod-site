@@ -7,7 +7,7 @@ export default class Navbar extends BaseCustomElement {
   menuList = null;
   navbarTitle = null;
 
-  render() {
+  renderTemplate() {
     return `
     <p class="navbar__title txt-primary f-family-sans-2">ALEPOD</p>
     <img class="navbar__logo" src="${logoAlepodSquare}" alt="Logo cuadrado de Alepod.">

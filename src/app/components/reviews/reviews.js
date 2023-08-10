@@ -6,21 +6,23 @@ import mockReviews from '../../mock/google-reviews.json';
 import './reviews.css';
 
 export default class GoogleReviews extends BaseCustomElement {
-  reviews = mockReviews;
+  reviews = () => [];
+  setReviews = () => {};
   googlePlaces = new GooglePlaces();
 
   constructor() {
-    super({ reactiveProperties: ['reviews'] });
+    super();
+    [this.reviews, this.setReviews] = this.createSetter([]);
   }
 
   afterFirstRender() {
     this.getGoogleReviews().then((data) => {
-      this.reviews = data;
+      this.setReviews(data);
     });
   }
 
-  render() {
-    return this.reviews.map((review) => this.getReviewTemplate(review)).join('');
+  renderTemplate() {
+    return this.reviews().map((review) => this.getReviewTemplate(review)).join('');
   }
 
   getReviewTemplate(review) {
