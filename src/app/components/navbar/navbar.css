@@ -15,6 +15,11 @@
     text-shadow: var(--txt-shadow-1);
 }
 
+.toggle-theme {
+    margin-inline: auto;
+}
+
+.toggle-theme,
 .navbar__toggle {
     padding: 0;
     border: none;
@@ -38,11 +43,16 @@
 }
 
 .navbar__toggle[aria-expanded="true"] {
-    background-image: url(/src/assets/icons/close-white.svg);
+    background-image: url(/src/assets/icons/close.svg);
 }
 
 .navbar__toggle[aria-expanded="true"]:active {
     transform: rotate(-180deg);
+}
+
+.toggle-theme[data-dark="false"]:active,
+.toggle-theme[data-dark="true"]:active {
+    transform: rotate(180deg);
 }
 
 .navbar__list {

@@ -3,6 +3,7 @@
 .rounded-button,
 .square-button {
     color: inherit;
+    background-color: inherit;
     text-decoration: none;
     transition-property: transform, opacity, background-color;
     transition-duration: .25s, .25s, .25s;

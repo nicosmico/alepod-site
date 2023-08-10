@@ -9,7 +9,8 @@ export default class BaseCustomElement extends HTMLElement {
    * Set defaults or perform other pre-rendering processes.
    *
    * @param {Object} config - Base configuration.
-   * @param {string[]} config.reactiveProperties - Declare reactive properties.
+   * @param {Object} config.reactiveProperties - Declare reactive properties.
+   *  { jsPropertyName: 'html-attribute-name' }
    */
   constructor(config = {}) {
     super();
@@ -52,7 +53,8 @@ export default class BaseCustomElement extends HTMLElement {
    */
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue === newValue) return;
-    this[name] = newValue;
+    const propertyname = this.config.reactiveProperties[name] || name;
+    this[propertyname] = newValue;
     this._render();
   }
 
@@ -82,10 +84,10 @@ export default class BaseCustomElement extends HTMLElement {
   /**
    * Define properties to observe and render the component when they change.
    *
-   * @param {string[]} props - An array of property names to observe.
+   * @param {Object} props - An array of property names to observe.
    */
   reactiveProperties(props) {
-    props.forEach((prop) => {
+    Object.keys(props).forEach((prop) => {
       const name = prop.toString();
 
       // Store initial value in '_property' before overwriting it with get/set
