@@ -9,6 +9,8 @@ import 'leaflet/dist/leaflet.css';
 
 export default class LocationsMap extends BaseCustomElement {
   map = null;
+  locationButtons = [];
+
   manualSelection = false;
   currentLocation = null; // { index: number, layer: L.Circle }
 
@@ -111,8 +113,6 @@ export default class LocationsMap extends BaseCustomElement {
       zoom: 12,
     },
   ];
-
-  locationButtons = [];
 
   render() {
     const locationsEl = this.locations.map((location, index) => `
