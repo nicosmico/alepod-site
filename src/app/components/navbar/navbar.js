@@ -51,18 +51,27 @@ export default class Navbar extends BaseCustomElement {
   }
 
   afterFirstRender() {
+    // Selectors
     this.toggleMenuButton = this.querySelector('.navbar__toggle');
     this.toggleThemeButton = this.querySelector('.toggle-theme');
     this.menuList = this.querySelector('.navbar__list');
     this.menuLinks = this.querySelectorAll('.navbar__link');
     this.body = document.querySelector('body');
 
+    // Dark theme
     this.setDarkTheme(this.darkTheme);
     this.toggleThemeButton.addEventListener('click', () => {
       this.setDarkTheme(!this.darkTheme);
     });
 
+    // Togle menu
     this.toggleMenuButton.addEventListener('click', () => (this.menuOpen ? this.closeMenu() : this.openMenu()));
+
+    // Handle active location
+    this.changeActiveOnNavigation();
+    window.addEventListener('hashchange', () => {
+      this.changeActiveOnNavigation();
+    });
   }
 
   openMenu() {
@@ -79,6 +88,22 @@ export default class Navbar extends BaseCustomElement {
     this.toggleMenuButton.setAttribute('aria-expanded', false);
     this.classList.add('txt-primary');
     this.classList.remove('txt-on-primary');
+  }
+
+  changeActiveOnNavigation() {
+    let hasHash = false;
+    this.menuLinks.forEach((link) => {
+      if (link.getAttribute('href') === window.location.hash) {
+        link.classList.add('active');
+        hasHash = true;
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    if (!hasHash) {
+      this.menuLinks[0].classList.add('active');
+    }
   }
 
   setDarkTheme(value) {
