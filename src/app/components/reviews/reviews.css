@@ -1,5 +1,5 @@
 .comment {
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     background-color: var(--clr-background);
     color: var(--clr-on-primary-container);
     border-radius: 20px;
