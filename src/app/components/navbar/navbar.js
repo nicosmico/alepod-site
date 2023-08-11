@@ -1,17 +1,33 @@
+import logoSvgRaw from '!!raw-loader!../../../assets/images/logo-alepod-square.svg';
 import BaseCustomElement from '../../core/base-custom-element';
 import './navbar.css';
-import logoAlepodSquare from '../../../assets/images/logo-alepod-square.svg';
 
 export default class Navbar extends BaseCustomElement {
-  toggleButton = null;
+  menuOpen = false;
+  darkTheme = false;
+
+  toggleMenuButton = null;
+  toggleThemeButton = null;
   menuList = null;
-  navbarTitle = null;
+  menuLinks = null;
+  body = null;
+
+  constructor() {
+    super();
+
+    // Check saved and prefers theme
+    const savedDarkTheme = localStorage.getItem('dark-theme');
+    const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    this.darkTheme = savedDarkTheme ? savedDarkTheme === 'true' : prefersDarkTheme;
+  }
 
   renderTemplate() {
     return `
-    <p class="navbar__title txt-primary f-family-sans-2">ALEPOD</p>
-    <img class="navbar__logo" src="${logoAlepodSquare}" alt="Logo cuadrado de Alepod.">
-    <button class="navbar__toggle" aria-expanded="false"><span class="sr-only">Menu</span></button>
+    <a class="navbar__title f-family-sans-2" href="#home">ALEPOD</a>
+    <div class="navbar__logo">${logoSvgRaw}</div>
+    <button class="navbar__toggle" aria-expanded="false">
+      <span class="sr-only">Menu</span>
+    </button>
 
     <ul class="navbar__list bg-primary txt-on-primary flex-column gap-2" data-visible="false">
       <li><a class="navbar__link uppercase ft-headline active" href="#home">
@@ -29,65 +45,50 @@ export default class Navbar extends BaseCustomElement {
       <li><a class="navbar__link uppercase ft-headline" href="#about-me">
         <span>05</span>Sobre mi
       </a></li>
+      <button class="toggle-theme" data-dark="${this.darkTheme}"></button>
     </ul>
-  `;
+    `;
   }
 
   afterFirstRender() {
-    this.toggleButton = this.querySelector('.navbar__toggle');
+    this.toggleMenuButton = this.querySelector('.navbar__toggle');
+    this.toggleThemeButton = this.querySelector('.toggle-theme');
     this.menuList = this.querySelector('.navbar__list');
     this.menuLinks = this.querySelectorAll('.navbar__link');
-    this.navbarTitle = this.querySelector('.navbar__title');
-    this.updateActiveLink();
+    this.body = document.querySelector('body');
 
-    this.toggleButton.addEventListener('click', () => {
-      this.toggleMenu();
+    this.setDarkTheme(this.darkTheme);
+    this.toggleThemeButton.addEventListener('click', () => {
+      this.setDarkTheme(!this.darkTheme);
     });
 
-    // TODO: See if this is need after add scroll logic
-    window.addEventListener('hashchange', () => {
-      this.updateActiveLink();
-      this.closeMenu();
-    });
-  }
-
-  toggleMenu() {
-    return this.menuOpened() ? this.closeMenu() : this.openMenu();
-  }
-
-  menuOpened() {
-    return this.menuList.getAttribute('data-visible') === 'true';
+    this.toggleMenuButton.addEventListener('click', () => (this.menuOpen ? this.closeMenu() : this.openMenu()));
   }
 
   openMenu() {
+    this.menuOpen = true;
     this.menuList.setAttribute('data-visible', true);
-    this.toggleButton.setAttribute('aria-expanded', true);
-    this.navbarTitle.classList.remove('txt-primary');
-    this.navbarTitle.classList.add('txt-on-primary');
+    this.toggleMenuButton.setAttribute('aria-expanded', true);
+    this.classList.remove('txt-primary');
+    this.classList.add('txt-on-primary');
   }
 
   closeMenu() {
+    this.menuOpen = false;
     this.menuList.setAttribute('data-visible', false);
-    this.toggleButton.setAttribute('aria-expanded', false);
-    this.navbarTitle.classList.add('txt-primary');
-    this.navbarTitle.classList.remove('txt-on-primary');
+    this.toggleMenuButton.setAttribute('aria-expanded', false);
+    this.classList.add('txt-primary');
+    this.classList.remove('txt-on-primary');
   }
 
-  updateActiveLink() {
-    const url = new URL(window.location.href);
-    const { hash } = url;
-
-    if (!hash) {
-      this.menuLinks[0].classList.add('active');
-      return;
+  setDarkTheme(value) {
+    this.darkTheme = value;
+    if (value) {
+      this.body.classList.add('dark');
+    } else {
+      this.body.classList.remove('dark');
     }
-
-    this.menuLinks.forEach((link) => {
-      if (link.href === window.location.href) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
+    this.toggleThemeButton.setAttribute('data-dark', value);
+    localStorage.setItem('dark-theme', value);
   }
 }

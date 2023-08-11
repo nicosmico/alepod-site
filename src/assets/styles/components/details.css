@@ -27,6 +27,12 @@
 .styled-details .summary-icon {
     display: inline-block;
     transition: transform 0.3s;
+
+    background-color: var(--clr-primary);
+    mask-image: url(/src/assets/icons/chevron-right.svg);
+    -webkit-mask-image: url(/src/assets/icons/chevron-right.svg);
+    width: 24px;
+    height: 24px;
 }
 
 .styled-details[open] .summary-icon {

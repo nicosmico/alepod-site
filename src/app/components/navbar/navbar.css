@@ -35,24 +35,46 @@
 }
 
 .navbar__toggle[aria-expanded="false"] {
-    background-image: url(/src/assets/icons/menu.svg);
+    background-color: var(--clr-primary);
+    mask-image: url(/src/assets/icons/menu.svg);
+    -webkit-mask-image: url(/src/assets/icons/menu.svg);
+}
+
+.navbar__toggle[aria-expanded="true"] {
+    background-color: var(--clr-on-primary);
+    mask-image: url(/src/assets/icons/close.svg);
+    -webkit-mask-image: url(/src/assets/icons/close.svg);
 }
 
 .navbar__toggle[aria-expanded="false"]:active {
     transform: rotate(180deg);
 }
 
-.navbar__toggle[aria-expanded="true"] {
-    background-image: url(/src/assets/icons/close.svg);
-}
-
 .navbar__toggle[aria-expanded="true"]:active {
     transform: rotate(-180deg);
 }
 
-.toggle-theme[data-dark="false"]:active,
-.toggle-theme[data-dark="true"]:active {
+.toggle-theme {
+    background-color: var(--clr-on-primary);
+    margin-top: 2rem;
+}
+
+.toggle-theme[data-dark="false"] {
+    mask-image: url(/src/assets/icons/moon.svg);
+    -webkit-mask-image: url(/src/assets/icons/moon.svg);
+}
+
+.toggle-theme[data-dark="true"] {
+    mask-image: url(/src/assets/icons/sun.svg);
+    -webkit-mask-image: url(/src/assets/icons/sun.svg);
+}
+
+.toggle-theme[data-dark="false"]:active {
     transform: rotate(180deg);
+}
+
+.toggle-theme[data-dark="true"]:active {
+    transform: rotate(-180deg);
 }
 
 .navbar__list {
@@ -81,6 +103,7 @@
     border-end-end-radius: 30px;
 }
 
+.navbar__title,
 .navbar__link {
     color: inherit;
     text-decoration: none;
@@ -93,14 +116,18 @@
     font-size: calc(var(--headline-font-size) + 5px);
 }
 
+
+.navbar__title,
 .navbar__link:visited {
     color: inherit;
 }
 
+.navbar__title,
 .navbar__link:focus {
     color: inherit;
 }
 
+.navbar__title,
 .navbar__link:active {
     color: inherit;
 }
@@ -155,8 +182,12 @@
 
     .navbar__logo {
         display: block;
+    }
+
+    .navbar__logo > svg {
         width: 150px;
         height: 150px;
+        color: var(--clr-on-primary);
     }
 
     .navbar {

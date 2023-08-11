@@ -117,7 +117,7 @@ export default class LocationsMap extends BaseCustomElement {
   renderTemplate() {
     const locationsEl = this.locations.map((location, index) => `
       <li>
-        <button class="location-button square-button button--blue box-shadow-2" value="${index}">
+        <button class="location-button square-button button--secondary box-shadow-2" value="${index}">
           ${location.name}
         </button>
       </li>
@@ -171,7 +171,7 @@ export default class LocationsMap extends BaseCustomElement {
   focusLocation(locationIndex) {
     const location = this.locations[locationIndex];
     const locationButton = this.locationButtons[locationIndex];
-    locationButton.classList.remove('button--blue');
+    locationButton.classList.remove('button--secondary');
     locationButton.classList.add('button--primary');
     locationButton.classList.add('button--hover');
     this.map.setView(location.coords, location.zoom);
@@ -182,12 +182,12 @@ export default class LocationsMap extends BaseCustomElement {
     const locationButton = this.locationButtons[locationIndex];
     locationButton.classList.remove('button--primary');
     locationButton.classList.remove('button--hover');
-    locationButton.classList.add('button--blue');
+    locationButton.classList.add('button--secondary');
     this.removeMapLayer(layer);
   }
 
   drawCirle(popup, coords, radius, diff) {
-    const regularClr = 'var(--clr-blue)';
+    const regularClr = 'var(--clr-secondary)';
     const diffColor = 'var(--clr-primary)';
     const circle = L.circle(coords, {
       color: diff ? diffColor : regularClr,

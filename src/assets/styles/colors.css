@@ -1,9 +1,8 @@
 :root {
-    /* --clr-primary: #C28AC7; */
     --clr-primary: #A756AE;
     --clr-on-primary: #FFFFFF;
-    --clr-secondary: #E8DEF8;
-    --clr-on-secondary: #1F1B1F;
+    --clr-secondary: #007399;
+    --clr-on-secondary: #FFFFFF;
     --clr-primary-container: #F7F0F8;
     --clr-on-primary-container: #1F1B1F;
     --clr-background: #FFFBFF;
@@ -12,8 +11,24 @@
     /* Fixed colors */
     --clr-green: #009978;
     --clr-on-green: #FFFFFF;
-    --clr-blue: #007399;
-    --clr-on-blue: #FFFFFF;
+}
+
+.dark {
+    --clr-primary: hsl(260, 51%, 70%);
+    --clr-on-primary: #1F1B1F;
+
+    --clr-secondary: hsl(323, 93%, 84%);
+    --clr-on-secondary: #1F1B1F;
+
+    --clr-primary-container: hsl(300, 17%, 11%);
+    --clr-on-primary-container: hsl(300, 7%, 89%);
+
+    --clr-background: hsl(300, 33%, 6%);
+    --clr-on-background: #FFFFFF;
+
+    /* Fixed colors */
+    --clr-green: hsl(167, 100%, 40%);
+    --clr-on-green: #000000;
 }
 
 /* Text colors */

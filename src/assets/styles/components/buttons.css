@@ -54,7 +54,7 @@
     color: var(--clr-on-green);
 }
 
-.button--blue {
-    background-color: var(--clr-blue);
-    color: var(--clr-on-blue);
+.button--secondary {
+    background-color: var(--clr-secondary);
+    color: var(--clr-on-secondary);
 }

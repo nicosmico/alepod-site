@@ -33,6 +33,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'class-methods-use-this': 'off',
     'no-plusplus': 'off',
+    'import/no-webpack-loader-syntax': 'off',
     'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
   },
 };
