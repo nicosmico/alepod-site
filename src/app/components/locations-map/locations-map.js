@@ -232,6 +232,6 @@ export default class LocationsMap extends BaseCustomElement {
       this.currentLocation = { index, layer };
 
       index = index < this.locations.length - 1 ? index + 1 : 0;
-    }, 3000);
+    }, 6000);
   }
 }
