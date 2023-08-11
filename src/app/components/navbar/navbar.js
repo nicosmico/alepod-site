@@ -39,11 +39,11 @@ export default class Navbar extends BaseCustomElement {
       <li><a class="navbar__link uppercase ft-headline" href="#questions">
         <span>03</span>Preguntas
       </a></li>
-      <li><a class="navbar__link uppercase ft-headline" href="#comments">
-        <span>04</span>Comentarios
-      </a></li>
       <li><a class="navbar__link uppercase ft-headline" href="#about-me">
-        <span>05</span>Sobre mi
+        <span>04</span>Sobre mi
+      </a></li>
+      <li><a class="navbar__link uppercase ft-headline" href="#comments">
+        <span>05</span>Comentarios
       </a></li>
       <button class="toggle-theme" data-dark="${this.darkTheme}"></button>
     </ul>
@@ -96,6 +96,7 @@ export default class Navbar extends BaseCustomElement {
       if (link.getAttribute('href') === window.location.hash) {
         link.classList.add('active');
         hasHash = true;
+        this.closeMenu();
       } else {
         link.classList.remove('active');
       }

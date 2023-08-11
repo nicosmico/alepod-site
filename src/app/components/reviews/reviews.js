@@ -12,7 +12,7 @@ export default class GoogleReviews extends BaseCustomElement {
 
   constructor() {
     super();
-    [this.reviews, this.setReviews] = this.createSetter([]);
+    [this.reviews, this.setReviews] = this.createSetter(mockReviews);
   }
 
   afterFirstRender() {
@@ -27,7 +27,7 @@ export default class GoogleReviews extends BaseCustomElement {
 
   getReviewTemplate(review) {
     return `
-    <div class="comment box-shadow-2 spaced-y-05">
+    <div class="comment box-shadow-1 spaced-y-05">
       <div class="flex-align-center gap-05">
         <img class="comment__avatar" src="${review.user.picture}" alt="Foto de perfil de cliente.">
         <div>

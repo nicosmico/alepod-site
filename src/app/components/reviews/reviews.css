@@ -1,6 +1,6 @@
 .comment {
     padding: 1rem;
-    background-color: var(--clr-primary-container);
+    background-color: var(--clr-background);
     color: var(--clr-on-primary-container);
     border-radius: 20px;
     border-end-start-radius: 0;

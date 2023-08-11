@@ -64,6 +64,14 @@
     color: var(--clr-background);
 }
 
+.txt-green {
+    color: var(--clr-green);
+}
+
+.txt-on-green {
+    color: var(--clr-on-green);
+}
+
 /* Background colors */
 .bg-primary {
     background-color: var(--clr-primary);
