@@ -127,7 +127,7 @@ export default class LocationsMap extends BaseCustomElement {
       <div class="callout m-b-1">
         <div>✨</div>
         <div>
-          <p class="f-weight-500">Explora en el mapa las zonas donde atiendo con frecuencia.</p>
+          <p class="f-weight-500">Explora en el mapa las áreas donde suelo atender con frecuencia.</p>
           <p class="ft-label">Las zonas solo son referenciales, si no aparece tu localidad <span class="f-weight-500">no dudes en consultar.</span></p>
         </div>
       </div>
