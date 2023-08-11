@@ -24,17 +24,16 @@
     margin-bottom: .25rem;
 }
 
-.styled-details .summary-icon {
-    display: inline-block;
-    transition: transform 0.3s;
-
+.styled-details > summary:first-child::before {
+    content: "";
     background-color: var(--clr-primary);
     mask-image: url(/src/assets/icons/chevron-right.svg);
     -webkit-mask-image: url(/src/assets/icons/chevron-right.svg);
     width: 24px;
     height: 24px;
+    transition: transform 0.3s;
 }
 
-.styled-details[open] .summary-icon {
+.styled-details[open] > summary:first-child::before {
     transform: rotate(90deg);
 }
