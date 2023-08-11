@@ -6,6 +6,7 @@
 .styled-details > summary {
     list-style: none;
     display: flex;
+    gap: .5rem;
     align-items: center;
     user-select: none;
     transition: transform .25s linear;
@@ -26,6 +27,7 @@
 
 .styled-details > summary:first-child::before {
     content: "";
+    display: block;
     background-color: var(--clr-primary);
     mask-image: url(/src/assets/icons/chevron-right.svg);
     -webkit-mask-image: url(/src/assets/icons/chevron-right.svg);
