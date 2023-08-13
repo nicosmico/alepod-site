@@ -124,13 +124,6 @@ export default class LocationsMap extends BaseCustomElement {
       `).join('');
 
     return `
-      <div class="callout m-b-1">
-        <div>✨</div>
-        <div>
-          <p class="f-weight-500">Explora en el mapa las áreas donde suelo atender con frecuencia.</p>
-          <p class="ft-label">Las zonas solo son referenciales, si no aparece tu localidad <span class="f-weight-500">no dudes en consultar.</span></p>
-        </div>
-      </div>
       <ul class="location-list list-style-none flex-justify-start flex-wrap">${locationsEl}</ul>
       <div class="locations-map b-rad-20 box-shadow-1"></div>
     `;
@@ -139,7 +132,7 @@ export default class LocationsMap extends BaseCustomElement {
   afterFirstRender() {
     // Init map
     const mapSelector = this.querySelector('.locations-map');
-    this.map = L.map(mapSelector).setView(this.origin.coords, 10);
+    this.map = L.map(mapSelector).setView(this.origin.coords, 9);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '© OpenStreetMap',
