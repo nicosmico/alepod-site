@@ -12,6 +12,16 @@ export default class MainNavbar extends BaseCustomElement {
   menuLinks = null;
   body = null;
 
+  sections = [
+    { number: '01', title: 'Agendar hora', href: '#home' },
+    { number: '02', title: 'Localidades', href: '#locations' },
+    { number: '03', title: 'Preguntas', href: '#questions' },
+    { number: '04', title: 'Sobre mi', href: '#about-me' },
+    { number: '05', title: 'Comentarios', href: '#comments' },
+  ];
+
+  navLink = (section) => `<li><a class="navbar__link uppercase ft-headline active" href="${section.href}" data-test="navbar-link"><span>${section.number}</span>${section.title}</a></li>`;
+
   constructor() {
     super();
 
@@ -22,30 +32,18 @@ export default class MainNavbar extends BaseCustomElement {
   }
 
   renderTemplate() {
+    const listLinks = this.sections.map((section) => this.navLink(section));
+
     return `
     <a class="navbar__title f-family-sans-2" href="#home">ALEPOD</a>
     <div class="navbar__logo">${logoSvgRaw}</div>
-    <button class="navbar__toggle" aria-expanded="false">
+    <button class="navbar__toggle" aria-expanded="false" data-test="navbar-toggle">
       <span class="sr-only">Menu</span>
     </button>
 
-    <ul class="navbar__list bg-primary txt-on-primary flex-column gap-2" data-visible="false">
-      <li><a class="navbar__link uppercase ft-headline active" href="#home">
-        <span>01</span>Agendar hora
-      </a></li>
-      <li><a class="navbar__link uppercase ft-headline" href="#locations">
-        <span>02</span>Localidades
-      </a></li>
-      <li><a class="navbar__link uppercase ft-headline" href="#questions">
-        <span>03</span>Preguntas
-      </a></li>
-      <li><a class="navbar__link uppercase ft-headline" href="#about-me">
-        <span>04</span>Sobre mi
-      </a></li>
-      <li><a class="navbar__link uppercase ft-headline" href="#comments">
-        <span>05</span>Comentarios
-      </a></li>
-      <button class="toggle-theme" data-dark="${this.darkTheme}"></button>
+    <ul class="navbar__list bg-primary txt-on-primary flex-column gap-2" data-visible="false" data-test="navbar-list">
+      ${listLinks.join('')}
+      <button class="toggle-theme" data-dark="${this.darkTheme}" data-test="navbar-theme-toggle"></button>
     </ul>
     `;
   }
@@ -62,6 +60,7 @@ export default class MainNavbar extends BaseCustomElement {
     this.setDarkTheme(this.darkTheme);
     this.toggleThemeButton.addEventListener('click', () => {
       this.setDarkTheme(!this.darkTheme);
+      this.closeMenu();
     });
 
     // Togle menu
