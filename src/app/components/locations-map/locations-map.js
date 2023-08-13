@@ -117,7 +117,7 @@ export default class LocationsMap extends BaseCustomElement {
   renderTemplate() {
     const locationsEl = this.locations.map((location, index) => `
       <li>
-        <button class="location-button square-button button--secondary box-shadow-2" value="${index}">
+        <button class="location-button square-button button--secondary box-shadow-2" value="${index}" data-test="location-button">
           ${location.name}
         </button>
       </li>
@@ -125,7 +125,7 @@ export default class LocationsMap extends BaseCustomElement {
 
     return `
       <ul class="location-list list-style-none flex-justify-start flex-wrap">${locationsEl}</ul>
-      <div class="locations-map b-rad-20 box-shadow-1"></div>
+      <div class="locations-map b-rad-20 box-shadow-1" data-test="locations-map"></div>
     `;
   }
 

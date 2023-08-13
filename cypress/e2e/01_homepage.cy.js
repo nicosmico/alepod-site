@@ -31,6 +31,20 @@ describe('01 - Homepage', () => {
     });
   });
 
+  context('Map', () => {
+    it('user can view locations and map', () => {
+      // Look for location buttons
+      cy.getBySel('location-button').first().should('be.visible');
+      cy.getBySel('location-button').first().click({
+        scrollBehavior: 'center',
+      });
+
+      // Look for a circle in the map
+      cy.getBySel('locations-map').get('.leaflet-pane.leaflet-map-pane .leaflet-interactive')
+        .should('be.visible');
+    });
+  });
+
   context('Reviews', () => {
     it('user can view reviews', () => {
       cy.getBySel('review-card').first().scrollIntoView();
