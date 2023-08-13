@@ -1,12 +1,12 @@
 import contactData from '../fixtures/contact-data.json';
 
 describe('01 - Homepage', () => {
-  context('Contact information', () => {
-    beforeEach(() => {
-      cy.visit('http://localhost:3000/');
-      cy.viewport('iphone-x');
-    });
+  beforeEach(() => {
+    cy.visit('http://localhost:3000/');
+    cy.viewport('iphone-x');
+  });
 
+  context('Contact information', () => {
     it('user can view phone number', () => {
       cy.getBySel('header-phone').contains(contactData.formatedPhone);
     });
@@ -28,6 +28,13 @@ describe('01 - Homepage', () => {
         .should('be.visible')
         .should('not.have.attr', 'href', '#undefined')
         .should('have.attr', 'href', `tel:${contactData.phone}`);
+    });
+  });
+
+  context('Reviews', () => {
+    it('user can view reviews', () => {
+      cy.getBySel('review-card').first().scrollIntoView();
+      cy.getBySel('review-card').first().should('be.visible');
     });
   });
 });

@@ -3,7 +3,7 @@ import starFilled from '../../../assets/icons/star-filled.svg';
 import GooglePlaces from '../../services/google-places';
 import BaseCustomElement from '../../core/base-custom-element';
 import mockReviews from '../../mock/google-reviews.json';
-import './reviews.css';
+import './google-reviews.css';
 
 export default class GoogleReviews extends BaseCustomElement {
   reviews = () => [];
@@ -27,7 +27,7 @@ export default class GoogleReviews extends BaseCustomElement {
 
   getReviewTemplate(review) {
     return `
-    <div class="comment box-shadow-1 spaced-y-05">
+    <div class="comment box-shadow-1 spaced-y-05" data-test="review-card">
       <div class="flex-align-center gap-05">
         <img class="comment__avatar" src="${review.user.picture}" alt="Foto de perfil de cliente.">
         <div>
