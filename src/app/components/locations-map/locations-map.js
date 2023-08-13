@@ -162,19 +162,19 @@ export default class LocationsMap extends BaseCustomElement {
 
         // Focus new location
         const index = e.target.value;
-        const layer = this.focusLocation(index);
+        const layer = this.focusLocation(index, true);
         this.currentLocation = { index, layer };
       });
     });
   }
 
-  focusLocation(locationIndex) {
+  focusLocation(locationIndex, setView = false) {
     const location = this.locations[locationIndex];
     const locationButton = this.locationButtons[locationIndex];
     locationButton.classList.remove('button--secondary');
     locationButton.classList.add('button--primary');
     locationButton.classList.add('button--hover');
-    this.map.setView(location.coords, location.zoom);
+    if (setView) this.map.setView(location.coords, location.zoom);
     return this.drawCirle(location.name, location.coords, location.radius, true);
   }
 
@@ -232,6 +232,6 @@ export default class LocationsMap extends BaseCustomElement {
       this.currentLocation = { index, layer };
 
       index = index < this.locations.length - 1 ? index + 1 : 0;
-    }, 6000);
+    }, 1000);
   }
 }
