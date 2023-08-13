@@ -1,10 +1,10 @@
 describe('02 - Navbar', () => {
-  context('Mobile resolution', () => {
-    beforeEach(() => {
-      cy.visit('http://localhost:3000/');
-      cy.viewport('iphone-x');
-    });
+  beforeEach(() => {
+    cy.visit('http://localhost:3000/');
+    cy.viewport('iphone-x');
+  });
 
+  context('Mobile resolution', () => {
     it('user can not view navbar list', () => {
       cy.getBySel('navbar-toggle').should('have.attr', 'aria-expanded', 'false');
       cy.getBySel('navbar-list').should('have.attr', 'data-visible', 'false');
@@ -41,7 +41,6 @@ describe('02 - Navbar', () => {
 
   context('Desktop resolution', () => {
     beforeEach(() => {
-      cy.visit('http://localhost:3000/');
       cy.viewport('macbook-11');
     });
 
