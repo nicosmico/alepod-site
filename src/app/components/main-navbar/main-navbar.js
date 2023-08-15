@@ -1,6 +1,6 @@
 import logoSvgRaw from '!!raw-loader!../../../assets/images/logo-alepod-square.svg';
 import BaseCustomElement from '../../core/base-custom-element';
-import './navbar.css';
+import './main-navbar.css';
 
 export default class MainNavbar extends BaseCustomElement {
   menuOpen = false;

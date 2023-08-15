@@ -1,6 +1,6 @@
 import ContactButtons from './contact-buttons/contact-buttons';
 import LocationsMap from './locations-map/locations-map';
-import MainNavbar from './navbar/navbar';
+import MainNavbar from './main-navbar/main-navbar';
 import GoogleReviews from './google-reviews/google-reviews';
 
 export default function defineCustomElements() {
