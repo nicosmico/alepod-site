@@ -69,9 +69,8 @@ module.exports = {
   plugins: [
     // Generates an HTML file that includes all output bundles
     new HtmlWebpackPlugin({
-      // inject: true, // Put <script> at the end of <body>
       filename: 'index.html',
-      template: path.resolve(environment.paths.source, 'index.html'),
+      template: path.resolve(environment.paths.source, 'app/pages/index.html'),
       favicon: path.resolve(environment.paths.source, 'assets', 'favicon.ico'),
     }),
     // Extracts CSS into separate files for each JS file that contains CSS
