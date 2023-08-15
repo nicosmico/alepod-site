@@ -53,18 +53,13 @@ module.exports = {
           filename: 'assets/images/[name].[hash:6][ext]',
         },
       },
-      // {
-      //   test: /\.(eot|ttf|woff|woff2)$/,
-      //   type: 'asset',
-      //   parser: {
-      //     dataUrlCondition: {
-      //       maxSize: environment.limits.images,
-      //     },
-      //   },
-      //   generator: {
-      //     filename: 'fonts/[name].[hash:6][ext]',
-      //   },
-      // },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        type: 'asset',
+        generator: {
+          filename: 'assets/fonts/[name].[hash:6][ext]',
+        },
+      },
     ],
   },
   plugins: [
