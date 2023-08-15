@@ -31,7 +31,7 @@ export default class MainNavbar extends BaseCustomElement {
     this.darkTheme = savedDarkTheme ? savedDarkTheme === 'true' : prefersDarkTheme;
   }
 
-  renderTemplate() {
+  htmlTemplate() {
     const listLinks = this.sections.map((section) => this.navLink(section));
 
     return `

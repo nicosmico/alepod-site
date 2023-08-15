@@ -8,6 +8,7 @@ import './google-reviews.css';
 export default class GoogleReviews extends BaseCustomElement {
   reviews = () => [];
   setReviews = () => {};
+
   googlePlaces = new GooglePlaces();
 
   constructor() {
@@ -21,7 +22,7 @@ export default class GoogleReviews extends BaseCustomElement {
     });
   }
 
-  renderTemplate() {
+  htmlTemplate() {
     return this.reviews().map((review) => this.getReviewTemplate(review)).join('');
   }
 

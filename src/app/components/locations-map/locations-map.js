@@ -3,10 +3,6 @@ import BaseCustomElement from '../../core/base-custom-element';
 import './locations-map.css';
 import 'leaflet/dist/leaflet.css';
 
-/**
- * TODO: Reducir la cantidad de localidades para que se vea completo en mobile (localidades + mapa)
- */
-
 export default class LocationsMap extends BaseCustomElement {
   map = null;
   locationButtons = [];
@@ -114,7 +110,7 @@ export default class LocationsMap extends BaseCustomElement {
     },
   ];
 
-  renderTemplate() {
+  htmlTemplate() {
     const locationsEl = this.locations.map((location, index) => `
       <li>
         <button class="location-button square-button button--secondary box-shadow-2" value="${index}" data-test="location-button">

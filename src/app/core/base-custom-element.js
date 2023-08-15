@@ -1,83 +1,81 @@
-/**
- * BaseCustomElement - A custom element base to provide common functionality for custom elements.
- */
 export default class BaseCustomElement extends HTMLElement {
-  // constructor() {
-  //   super();
-  // }
+  // ///////////////////////////////////////////////////////////////////////////////////////////////
+  // HTMLElement methods ///////////////////////////////////////////////////////////////////////////
+  // ///////////////////////////////////////////////////////////////////////////////////////////////
 
-  /**
-   * (HTMLElement) Executed when the component is added to the DOM.
-   * Excecute afterFirstRender that can be override by child class.
-   */
-  connectedCallback() {
-    this.render();
-    if (this.afterFirstRender) this.afterFirstRender();
+  // Executed when the custom element is instanced.
+  // eslint-disable-next-line no-useless-constructor
+  constructor() {
+    super();
   }
 
-  /**
-   * (HTMLElement) Executed when the component is removed from the DOM
-   */
-  // disconnectedCallback() {
-  // }
+  // Executed when the custom element is added to the DOM.
+  connectedCallback() {
+    this.render();
+    this.afterFirstRender();
+  }
 
-  /**
-   * (HTMLElement) Method to declare attributes to observe on changes.
-   * Atributte's name can't have mayus. Format: simple or simple-with-dash
-   * @returns {string[]} An array of attribute names to observe.
-   */
+  // Excecuted when the custom element is removed from the DOM.
+  disconnectedCallback() {}
+
+  // Method to declare attributes to observe on changes.
+  // This method must be overrided.
+  // Atributte's name can't have mayus. (ex. attributename or attribute-name)
   static get observedAttributes() {
     return [];
   }
 
-  /**
-   * (HTMLElement) Executed when any attribute of the component changes.
-   * Use this.setAttribute('attributeName', 'New value hehe'); to execute this callback.
-   *
-   * @param {string} name - The name of the changed attribute.
-   * @param {string} oldValue - The previous value of the attribute.
-   * @param {string} newValue - The new value of the attribute.
-   */
+  // Executed when any attribute of the component changes.
+  // Use this.setAttribute('attributename', 'New value here'); to execute this callback.
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue === newValue) return;
     this[name] = newValue;
     this.render();
   }
 
-  /**
-   * (HTMLElement) Logic executed when the component is moved to a new document
-   */
-  // adoptedCallback() {
-  // }
+  // Executed when the component is moved to a new document.
+  // (ex. someone called document.adoptNode(el)).
+  adoptedCallback() {}
 
-  /**
-   * Define template to render.
-   *
-   * @returns {string} The template to render.
-   */
-  renderTemplate() {
-    return `${this.localName} works!`;
+  // ///////////////////////////////////////////////////////////////////////////////////////////////
+  // BaseCustomElement methods /////////////////////////////////////////////////////////////////////
+  // ///////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Executed after the component was added to the DOM.
+  afterFirstRender() {}
+
+  // Use to update the template in the html.
+  // Executed when the component is added to the DOM or when any attribute of the component changes.
+  // Render the parameter htmlTemplate or the content from htmlTemplate method.
+  render(htmlTemplate = null) {
+    this.innerHTML = htmlTemplate ?? this.htmlTemplate();
   }
 
-  /**
-   * Render the defined template
-   */
-  render() {
-    // console.log(`${this.localName} -> render()`);
-    this.innerHTML = this.renderTemplate();
+  // Executed in render method to get HTML template.
+  // This method must be overrided.
+  htmlTemplate() {
+    return `<p>${this.localName} works!</p>`;
   }
 
-  /**
-   * Return a getter and setter to render when value change
-   */
+  // Used to create a getter and a setter.
+  // When the setter is called, the render method will be executed.
   createSetter(defaultValue) {
     let value = defaultValue;
     const getValue = () => value;
     const setValue = (newValue) => {
-      // console.log('setValue: ', value, newValue);
       value = newValue;
       this.render();
     };
     return [getValue, setValue];
   }
 }
+
+// Extends this BaseCustomElement class to create a new custom element.
+// class ExampleCustomElement extends BaseCustomElement {}
+
+// Define custom element to use it in html
+// customElements.define('example-custom-element', ExampleCustomElement);
+
+// Use custom element in .html
+// <example-custom-element myattr="value here" example-attr="other value">
+// </example-custom-element>

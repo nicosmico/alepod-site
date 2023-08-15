@@ -1,7 +1,7 @@
 import BaseCustomElement from '../../core/base-custom-element';
 
 export default class ContactButtons extends BaseCustomElement {
-  renderTemplate() {
+  htmlTemplate() {
     return `
     <div class="flex-center-between gap-05">
       <a class="rounded-button button--primary width-100 box-shadow-1" href="tel:+56991759200" target="_blank" data-test="contact-call">
