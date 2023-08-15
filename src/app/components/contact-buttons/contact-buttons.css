@@ -1,0 +1,8 @@
+contact-buttons {
+    display: block;
+}
+
+contact-buttons svg {
+    min-width: fit-content;
+    min-height: fit-content;
+}

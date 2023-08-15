@@ -1,4 +1,5 @@
 import BaseCustomElement from '../../core/base-custom-element';
+import './contact-buttons.css';
 
 export default class ContactButtons extends BaseCustomElement {
   htmlTemplate() {
