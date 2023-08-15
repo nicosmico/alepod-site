@@ -30,7 +30,7 @@ export default class GoogleReviews extends BaseCustomElement {
     return `
     <div class="comment box-shadow-1 spaced-y-05" data-test="review-card">
       <div class="flex-align-center gap-05">
-        <img class="comment__avatar" src="${review.user.picture}" alt="Foto de perfil de cliente.">
+        <img class="comment__avatar" src="${review.user.picture}" alt="Foto de perfil de cliente." loading="lazy">
         <div>
           <p class="txt-shadow-1 f-weight-500">${review.user.name}</p>
           <div class="flex-align-center gap-05">
