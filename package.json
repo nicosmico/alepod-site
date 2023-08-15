@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "start": "http-server dist",
+    "start": "http-server dist -p 3000",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
     "cypress:open": "npx cypress open",
@@ -29,6 +29,7 @@
     "firebase-tools": "^12.4.7",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
+    "http-server": "^14.1.1",
     "mini-css-extract-plugin": "^2.7.6",
     "raw-loader": "^4.0.2",
     "style-loader": "^3.3.3",
