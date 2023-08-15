@@ -1,3 +1,5 @@
+/* TODO: Add google-reviews when css nesting is available */
+
 .comment {
     padding: 1rem 1.5rem;
     background-color: var(--clr-background);
