@@ -17,7 +17,8 @@ const environment = {
 module.exports = {
   // Entry point of the application
   entry: {
-    app: path.resolve(environment.paths.source, 'index.js'),
+    index: path.resolve(environment.paths.source, 'index.js'),
+    examplePage: path.resolve(environment.paths.source, 'app/pages/example-page/example-page.js'),
   },
   // Output configuration of the application
   output: {
@@ -67,11 +68,17 @@ module.exports = {
     ],
   },
   plugins: [
-    // Generates an HTML file that includes all output bundles
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(environment.paths.source, 'app/pages/index.html'),
       favicon: path.resolve(environment.paths.source, 'assets', 'favicon.ico'),
+      chunks: ['index'], // Without chunks, will include all output bundles
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'example-page.html',
+      template: path.resolve(environment.paths.source, 'app/pages/example-page/example-page.html'),
+      favicon: path.resolve(environment.paths.source, 'assets', 'favicon.ico'),
+      chunks: ['examplePage'], // Only include the examplePage output bundle
     }),
     // Extracts CSS into separate files for each JS file that contains CSS
     new MiniCssExtractPlugin({
