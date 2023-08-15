@@ -79,3 +79,6 @@ export default class BaseCustomElement extends HTMLElement {
 // Use custom element in .html
 // <example-custom-element myattr="value here" example-attr="other value">
 // </example-custom-element>
+
+// Use setAttribute to execute attributeChangedCallback and render the changes.
+// this.setAttribute('attributename', 'New value here');
