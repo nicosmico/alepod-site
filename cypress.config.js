@@ -7,4 +7,5 @@ module.exports = defineConfig({
       console.log({ on, config });
     },
   },
+  video: false,
 });
