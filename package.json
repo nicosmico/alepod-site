@@ -9,9 +9,10 @@
     "start": "http-server dist -p 3000",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
+    "deploy:prod": "npx firebase deploy",
     "cypress:open": "npx cypress open",
     "cypress:run": "npx cypress run",
-    "deploy:prod": "npx firebase deploy"
+    "test": "npm run cypress:run"
   },
   "keywords": [],
   "author": "",
