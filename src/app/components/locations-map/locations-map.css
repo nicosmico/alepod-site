@@ -1,26 +1,24 @@
-/* TODO: Add locations-map when css nesting is available */
-
-.location-list {
+locations-map .location-list {
     gap: .2rem;
 }
 
-.location-list > li {
+locations-map .location-list > li {
     flex-grow: 1;
 }
 
-.location-list > li > button {
+locations-map .location-list > li > button {
     white-space: nowrap;
     width: 100%;
 }
 
-.locations-map {
+locations-map .locations-map {
     width: 100%;
     height: 400px;
     z-index: 0;
 }
 
 @media (min-width: 48rem) {
-    .location-list {
+    locations-map .location-list {
         gap: .5rem;
     }
 }
