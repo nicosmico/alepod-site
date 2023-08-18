@@ -10,9 +10,8 @@
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
     "deploy:prod": "npx firebase deploy",
-    "cypress:open": "npx cypress open",
-    "cypress:run": "npx cypress run",
-    "test": "npm run cypress:run"
+    "test:e2e:open": "npx cypress open",
+    "test:e2e": "npx cypress run"
   },
   "keywords": [],
   "author": "",

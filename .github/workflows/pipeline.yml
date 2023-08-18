@@ -34,4 +34,4 @@ jobs:
         
       # Tests
       - name: Test app
-        run: npm test
+        run: npm start && npm run test:e2e
