@@ -10,6 +10,7 @@
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
     "deploy:prod": "npx firebase deploy",
+    "deploy:dev": "npx firebase hosting:channel:deploy dev --expires 1h",
     "test:e2e": "npx cypress run",
     "test:e2e:open": "npx cypress open"
   },
