@@ -2,7 +2,13 @@ name: Deployment pipeline
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
+
+# Any running workflow with this group name will be canceled
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }} # <Workflow name>-<Job name>
+  cancel-in-progress: true # Can
 
 jobs:
   deploy:
