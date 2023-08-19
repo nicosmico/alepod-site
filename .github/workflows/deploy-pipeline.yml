@@ -1,29 +1,34 @@
 name: Deployment pipeline
 
-# Trigger on push branches: main
+# Trigger: on push main
 on:
   push:
     branches:
       - main
 
-# Any running workflow with this group name will be canceled
+# Cancel unfinished previous workflow
+# github.workflow: Workflow name
+# github.ref: Event reference. Ex: refs/heads/main
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }} # <Workflow name>-<Event reference (ex: refs/heads/main)>
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   lint:
     runs-on: ubuntu-20.04
     steps:
-      # Get last commit from main branch: https://github.com/marketplace/actions/checkout
+      # Get last commit from main branch
+      # https://github.com/marketplace/actions/checkout
       - uses: actions/checkout@v3
         with:
           fetch-depth: 1
       
-      # Install Node: https://github.com/marketplace/actions/setup-node-js-environment
+      # Install Node
+      # https://github.com/marketplace/actions/setup-node-js-environment
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'npm'
       
       # Install dependencies
       - name: Install dependencies
@@ -35,15 +40,18 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      # Get last commit from main branch: https://github.com/marketplace/actions/checkout
+      # Get last commit from main branch
+      # https://github.com/marketplace/actions/checkout
       - uses: actions/checkout@v3
         with:
           fetch-depth: 1
       
-      # Install Node: https://github.com/marketplace/actions/setup-node-js-environment
+      # Install Node
+      # https://github.com/marketplace/actions/setup-node-js-environment
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'npm'
       
       # Install dependencies
       - name: Install dependencies
@@ -54,6 +62,7 @@ jobs:
         run: npm run build
 
       # Upload dist folder to use it in test job
+      # https://github.com/marketplace/actions/upload-a-build-artifact
       - uses: actions/upload-artifact@v3
         with:
           name: dist
@@ -63,23 +72,28 @@ jobs:
     runs-on: ubuntu-20.04
     needs: [lint, build]
     steps:
-      # Get last commit from main branch: https://github.com/marketplace/actions/checkout
+      # Get last commit from main branch
+      # https://github.com/marketplace/actions/checkout
       - uses: actions/checkout@v3
         with:
           fetch-depth: 1
       
-      # Install Node: https://github.com/marketplace/actions/setup-node-js-environment
+      # Install Node
+      # https://github.com/marketplace/actions/setup-node-js-environment
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'npm'
 
-      # Download dist folder
+      # Download dist folder (Artifact)
+      # https://github.com/marketplace/actions/download-a-build-artifact
       - uses: actions/download-artifact@v3
         with:
           name: dist
           path: dist
         
-      # Tests: https://github.com/marketplace/actions/cypress-io
+      # Install cypress, start and test app
+      # https://github.com/marketplace/actions/cypress-io
       - name: Run tests e2e
         uses: cypress-io/github-action@v5
         with:
@@ -91,18 +105,21 @@ jobs:
     runs-on: ubuntu-20.04
     needs: [test]
     steps:
-      # Get last commit from main branch: https://github.com/marketplace/actions/checkout
+      # Get last commit from main branch
+      # https://github.com/marketplace/actions/checkout
       - uses: actions/checkout@v3
         with:
           fetch-depth: 1
 
-      # Download dist folder
+      # Download dist folder (Artifact)
+      # https://github.com/marketplace/actions/download-a-build-artifact
       - uses: actions/download-artifact@v3
         with:
           name: dist
           path: dist
       
-      # Deploy: https://github.com/marketplace/actions/deploy-to-firebase-hosting
+      # Deploy
+      # https://github.com/marketplace/actions/deploy-to-firebase-hosting
       - name: Deploy to Firebase (Production)
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
