@@ -8,17 +8,17 @@ on:
 
 # Any running workflow with this group name will be canceled
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }} # <Workflow name>-<Job name>
-  cancel-in-progress: true # Can
+  group: ${{ github.workflow }}-${{ github.ref }} # <Workflow name>-<Event reference (ex: refs/heads/main)>
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  lint:
     runs-on: ubuntu-20.04
     steps:
-      # Get last commit from repo: https://github.com/marketplace/actions/checkout
+      # Get last commit from main branch: https://github.com/marketplace/actions/checkout
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
       
       # Install Node: https://github.com/marketplace/actions/setup-node-js-environment
       - uses: actions/setup-node@v3
@@ -26,16 +26,62 @@ jobs:
           node-version: 18
       
       # Install dependencies
-      - name: Install app dependencies
+      - name: Install dependencies
         run: npm ci
 
-      # Lint
+       # Lint
       - name: Lint app
         run: npm run lint
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      # Get last commit from main branch: https://github.com/marketplace/actions/checkout
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      
+      # Install Node: https://github.com/marketplace/actions/setup-node-js-environment
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
 
       # Build
       - name: Build app
         run: npm run build
+
+      # Upload dist folder to use it in test job
+      - uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+
+  test:
+    runs-on: ubuntu-20.04
+    needs: [lint, build]
+    steps:
+      # Get last commit from main branch: https://github.com/marketplace/actions/checkout
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      
+      # Install Node: https://github.com/marketplace/actions/setup-node-js-environment
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      
+      # Install dependencies TODO: Check if can remove this
+      - name: Install dependencies
+        run: npm ci
+
+      # Download dist folder
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
         
       # Tests: https://github.com/marketplace/actions/cypress-io
       - name: Run tests e2e
@@ -44,6 +90,26 @@ jobs:
           command: npm run test:e2e
           start: npm run start
           wait-on: http://localhost:3000
+
+  deploy:
+    runs-on: ubuntu-20.04
+    needs: [test]
+    steps:
+      # Get last commit from main branch: https://github.com/marketplace/actions/checkout
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      
+      # Install Node: https://github.com/marketplace/actions/setup-node-js-environment
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Download dist folder
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
       
       # Deploy: https://github.com/marketplace/actions/deploy-to-firebase-hosting
       - name: Deploy to Firebase (Production)
