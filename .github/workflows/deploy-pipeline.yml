@@ -72,10 +72,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      
-      # Install dependencies TODO: Check if can remove this
-      - name: Install dependencies
-        run: npm ci
 
       # Download dist folder
       - uses: actions/download-artifact@v3
@@ -99,11 +95,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      
-      # Install Node: https://github.com/marketplace/actions/setup-node-js-environment
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
 
       # Download dist folder
       - uses: actions/download-artifact@v3
