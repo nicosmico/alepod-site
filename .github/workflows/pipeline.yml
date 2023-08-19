@@ -15,14 +15,13 @@ jobs:
         with:
           fetch-depth: 0
       
-      # Install node v18
+      # Install Node: https://github.com/marketplace/actions/setup-node-js-environment
       - uses: actions/setup-node@v3
         with:
           node-version: 18
       
       # Install dependencies
-      - name: Install project dependencies
-        # run: npm install --no-audit --no-fund --no-optional
+      - name: Install app dependencies
         run: npm ci
 
       # Lint
@@ -33,10 +32,19 @@ jobs:
       - name: Build app
         run: npm run build
         
-      # Tests
-      - name: Cypress run
+      # Tests: https://github.com/marketplace/actions/cypress-io
+      - name: Run tests e2e
         uses: cypress-io/github-action@v5
         with:
           command: npm run test:e2e
           start: npm run start
           wait-on: http://localhost:3000
+      
+      # Deploy: https://github.com/marketplace/actions/deploy-to-firebase-hosting
+      - name: Deploy to Firebase (Production)
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALEPOD }}'
+          channelId: live
+          projectId: alepod
