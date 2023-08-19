@@ -15,7 +15,8 @@ concurrency:
 
 jobs:
   lint:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
     steps:
       # Get last commit from main branch
       # https://github.com/marketplace/actions/checkout
@@ -38,7 +39,8 @@ jobs:
       - name: Lint app
         run: npm run lint
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
     steps:
       # Get last commit from main branch
       # https://github.com/marketplace/actions/checkout
@@ -69,7 +71,8 @@ jobs:
           path: dist
 
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
     needs: [lint, build]
     steps:
       # Get last commit from main branch
@@ -102,7 +105,8 @@ jobs:
           wait-on: http://localhost:3000
 
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
     needs: [test]
     steps:
       # Get last commit from main branch
