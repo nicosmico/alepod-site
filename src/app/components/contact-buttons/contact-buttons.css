@@ -3,6 +3,6 @@ contact-buttons {
 }
 
 contact-buttons svg {
-    min-width: fit-content;
-    min-height: fit-content;
+    min-height: 24px;
+    min-width: 24px;
 }
