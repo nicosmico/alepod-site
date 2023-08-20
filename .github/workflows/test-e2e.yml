@@ -12,7 +12,6 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
-    needs: [lint, build]
     steps:
       # Get last commit from event branch
       # https://github.com/marketplace/actions/checkout

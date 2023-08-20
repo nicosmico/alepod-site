@@ -21,9 +21,11 @@ jobs:
     uses: ./.github/workflows/build.yml
 
   test-e2e-chrome:
+    needs: [lint, build]
     uses: ./.github/workflows/test-e2e.yml
 
   test-e2e-firefox:
+    needs: [lint, build]
     uses: ./.github/workflows/test-e2e.yml
 
   deploy:
