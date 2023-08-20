@@ -1,5 +1,6 @@
 name: Deploy to Firebase Hosting
 
+# TODO: Use this instead of repeat logic in deploy-to-prod.yml and preview-pull-request.yml
 on:
   workflow_call:
     inputs:
