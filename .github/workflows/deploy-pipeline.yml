@@ -16,63 +16,9 @@ concurrency:
 jobs:
   lint:
     uses: ./.github/workflows/lint.yml
-  # lint:
-  #   runs-on: ubuntu-22.04
-  #   timeout-minutes: 30
-  #   steps:
-  #     # Get last commit from event branch
-  #     # https://github.com/marketplace/actions/checkout
-  #     - uses: actions/checkout@v3
-  #       with:
-  #         fetch-depth: 1
-      
-  #     # Install Node
-  #     # https://github.com/marketplace/actions/setup-node-js-environment
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 18
-  #         cache: 'npm'
-      
-  #     # Install dependencies
-  #     - name: Install dependencies
-  #       run: npm ci
-
-  #      # Lint
-  #     - name: Lint app
-  #       run: npm run lint
 
   build:
-    runs-on: ubuntu-22.04
-    timeout-minutes: 30
-    steps:
-      # Get last commit from event branch
-      # https://github.com/marketplace/actions/checkout
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
-      
-      # Install Node
-      # https://github.com/marketplace/actions/setup-node-js-environment
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'npm'
-      
-      # Install dependencies
-      - name: Install dependencies
-        run: npm ci
-
-      # Build
-      - name: Build app
-        run: npm run build
-
-      # Upload dist folder to use it in test job
-      # https://github.com/marketplace/actions/upload-a-build-artifact
-      - uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: dist
-          if-no-files-found: error
+    uses: ./.github/workflows/build.yml
 
   test-e2e-chrome:
     runs-on: ubuntu-22.04

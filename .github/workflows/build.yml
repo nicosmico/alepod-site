@@ -1,10 +1,10 @@
-name: Lint app
+name: Build app
 
 on:
   workflow_call
 
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
@@ -23,6 +23,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Lint
-      - name: Lint app
-        run: npm run lint
+      # Build
+      - name: Build app
+        run: npm run build
+
+      # Upload dist folder to use it in test job
+      # https://github.com/marketplace/actions/upload-a-build-artifact
+      - uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+          if-no-files-found: error
