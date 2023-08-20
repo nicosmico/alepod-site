@@ -1,5 +1,6 @@
-name: Pull request pipeline
+name: Lint, test and preview pull request
 
+# TODO: Replace "./" by "nicosmico/alepod-site/"
 on:
   pull_request:
 
@@ -52,5 +53,5 @@ jobs:
             repoToken: ${{ secrets.GITHUB_TOKEN }}
             firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALEPOD }}
             projectId: alepod
-            channelId: dev-${{ github.sha }}
+            # channelId: dev-${{ github.sha }}
   
