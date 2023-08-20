@@ -1,4 +1,4 @@
-name: Lint, test and preview pull request
+name: Preview pull request
 
 # TODO: Replace "./" by "nicosmico/alepod-site/"
 on:
