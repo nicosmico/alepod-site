@@ -1,0 +1,38 @@
+name: Build app
+
+on:
+  workflow_call:
+    inputs:
+      browser:
+        description: Browser to run tests
+        default: electron
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    needs: [lint, build]
+    steps:
+      # Get last commit from event branch
+      # https://github.com/marketplace/actions/checkout
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      # Download dist folder (Artifact)
+      # https://github.com/marketplace/actions/download-a-build-artifact
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
+        
+      # Install dependencies and cypress. Also start and test app
+      # https://github.com/marketplace/actions/cypress-io
+      - name: Run tests e2e
+        uses: cypress-io/github-action@v5
+        with:
+          browser: ${{ inputs.browser }}
+          command: npm run test:e2e
+          start: npm run start
+          wait-on: http://localhost:3000
