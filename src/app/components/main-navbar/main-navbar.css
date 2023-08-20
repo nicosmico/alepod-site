@@ -123,15 +123,9 @@ main-navbar .navbar__link span {
 
 
 main-navbar .navbar__title,
-main-navbar .navbar__link:visited {
-    color: inherit;
-}
-
+main-navbar .navbar__link:visited,
 main-navbar .navbar__title,
-main-navbar .navbar__link:focus {
-    color: inherit;
-}
-
+main-navbar .navbar__link:focus,
 main-navbar .navbar__title,
 main-navbar .navbar__link:active {
     color: inherit;
