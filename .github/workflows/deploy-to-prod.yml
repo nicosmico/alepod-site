@@ -11,20 +11,20 @@ concurrency:
 
 jobs:
   lint:
-    uses: ./.github/workflows/reusable/lint.yml
+    uses: ./.github/workflows/lint.yml
 
   build:
-    uses: ./.github/workflows/reusable/build.yml
+    uses: ./.github/workflows/build.yml
 
   test-e2e-chrome:
     needs: [lint, build]
-    uses: ./.github/workflows/reusable/test-e2e.yml
+    uses: ./.github/workflows/test-e2e.yml
     with:
       browser: chrome
 
   test-e2e-firefox:
     needs: [lint, build]
-    uses: ./.github/workflows/reusable/test-e2e.yml
+    uses: ./.github/workflows/test-e2e.yml
     with:
       browser: firefox
 
