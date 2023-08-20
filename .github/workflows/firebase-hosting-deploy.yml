@@ -5,7 +5,6 @@ on:
     inputs:
       repoToken:
         description: Github repository token
-        required: true
         type: string
       firebaseServiceAccount:
         description: Firebase service account
