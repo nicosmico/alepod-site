@@ -14,20 +14,20 @@
 }
 
 .dark {
-    --clr-primary: hsl(260, 51%, 70%);
+    --clr-primary:#fcb0df;
     --clr-on-primary: #1F1B1F;
 
-    --clr-secondary: hsl(323, 93%, 84%);
+    --clr-secondary: #a58bda;
     --clr-on-secondary: #1F1B1F;
 
-    --clr-primary-container: hsl(300, 17%, 11%);
-    --clr-on-primary-container: hsl(300, 7%, 89%);
+    --clr-primary-container: #211721;
+    --clr-on-primary-container: #e5e1e5;
 
-    --clr-background: hsl(300, 33%, 6%);
+    --clr-background: #140a14;
     --clr-on-background: #FFFFFF;
 
     /* Fixed colors */
-    --clr-green: hsl(167, 100%, 40%);
+    --clr-green: #00cca0;
     --clr-on-green: #000000;
 }
 
