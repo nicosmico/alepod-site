@@ -1,6 +1,5 @@
 name: Preview pull request
 
-# TODO: Replace "./" by "nicosmico/alepod-site/"
 on:
   pull_request:
 
@@ -27,7 +26,7 @@ jobs:
     with:
       browser: firefox
 
-  preview-deploy:
+  deploy-preview:
       needs: [test-e2e-chrome, test-e2e-firefox]
       runs-on: ubuntu-22.04
       timeout-minutes: 30
@@ -53,5 +52,4 @@ jobs:
             repoToken: ${{ secrets.GITHUB_TOKEN }}
             firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALEPOD }}
             projectId: alepod
-            # channelId: dev-${{ github.sha }}
   
