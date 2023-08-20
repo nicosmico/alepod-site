@@ -18,7 +18,7 @@ export default class GoogleReviews extends BaseCustomElement {
 
   afterFirstRender() {
     this.getGoogleReviews().then((data) => {
-      this.setReviews(data);
+      if (data.lengh > 0) this.setReviews(data);
     });
   }
 
