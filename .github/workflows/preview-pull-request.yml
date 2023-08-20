@@ -1,5 +1,6 @@
-name: Pull request pipeline
+name: Preview pull request
 
+# TODO: Replace "./" by "nicosmico/alepod-site/"
 on:
   pull_request:
 
@@ -9,24 +10,24 @@ concurrency:
 
 jobs:
   lint:
-    uses: ./.github/workflows/reusable/lint.yml
+    uses: ./.github/workflows/lint.yml
 
   build:
-    uses: ./.github/workflows/reusable/build.yml
+    uses: ./.github/workflows/build.yml
 
   test-e2e-chrome:
     needs: [lint, build]
-    uses: ./.github/workflows/reusable/test-e2e.yml
+    uses: ./.github/workflows/test-e2e.yml
     with:
       browser: electron
 
   test-e2e-firefox:
     needs: [lint, build]
-    uses: ./.github/workflows/reusable/test-e2e.yml
+    uses: ./.github/workflows/test-e2e.yml
     with:
       browser: firefox
 
-  deploy:
+  preview-deploy:
       needs: [test-e2e-chrome, test-e2e-firefox]
       runs-on: ubuntu-22.04
       timeout-minutes: 30
@@ -52,4 +53,5 @@ jobs:
             repoToken: ${{ secrets.GITHUB_TOKEN }}
             firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALEPOD }}
             projectId: alepod
+            # channelId: dev-${{ github.sha }}
   
