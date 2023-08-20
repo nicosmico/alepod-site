@@ -21,10 +21,10 @@ jobs:
     uses: ./.github/workflows/build.yml
 
   test-e2e-chrome:
-    uses: ./.github/workflows/test-e2e-chrome.yml
+    uses: ./.github/workflows/test-e2e.yml
 
   test-e2e-firefox:
-    uses: ./.github/workflows/test-e2e-chrome.yml
+    uses: ./.github/workflows/test-e2e.yml
 
   deploy:
     runs-on: ubuntu-22.04
