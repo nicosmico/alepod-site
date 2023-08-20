@@ -3,8 +3,10 @@
     --clr-on-primary: #FFFFFF;
     --clr-secondary: #007399;
     --clr-on-secondary: #FFFFFF;
+
     --clr-primary-container: #F7F0F8;
     --clr-on-primary-container: #1F1B1F;
+
     --clr-background: #FFFBFF;
     --clr-on-background: #1F1B1F;
 
@@ -14,11 +16,10 @@
 }
 
 .dark {
-    --clr-primary:#fcb0df;
-    --clr-on-primary: #1F1B1F;
-
-    --clr-secondary: #a58bda;
-    --clr-on-secondary: #1F1B1F;
+    --clr-primary: #8c56ae;
+    --clr-on-primary: #FFFFFF;
+    --clr-secondary: #224c71;
+    --clr-on-secondary: #FFFFFF;
 
     --clr-primary-container: #211721;
     --clr-on-primary-container: #e5e1e5;
