@@ -58,6 +58,13 @@
     }
 }
 
+@media (min-width: 48rem) {
+    .footer, .footer__social-networks {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
 @media (min-width: 64rem) {
     .header__image {
         width: 45%;
