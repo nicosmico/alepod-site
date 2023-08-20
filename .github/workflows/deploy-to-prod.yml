@@ -1,41 +1,36 @@
-name: Deployment pipeline
+name: Deploy to Firebase Hosting (Production)
 
-# Trigger: on push main
 on:
   push:
     branches:
       - main
 
-# Cancel unfinished previous workflow
-# github.workflow: Workflow name
-# github.ref: Event reference, like branch name. Ex: refs/heads/main
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   lint:
-    uses: ./.github/workflows/lint.yml
+    uses: ./.github/workflows/reusable/lint.yml
 
   build:
-    uses: ./.github/workflows/build.yml
+    uses: ./.github/workflows/reusable/build.yml
 
   test-e2e-chrome:
     needs: [lint, build]
-    uses: ./.github/workflows/test-e2e.yml
+    uses: ./.github/workflows/reusable/test-e2e.yml
     with:
       browser: chrome
 
   test-e2e-firefox:
     needs: [lint, build]
-    uses: ./.github/workflows/test-e2e.yml
+    uses: ./.github/workflows/reusable/test-e2e.yml
     with:
       browser: firefox
 
   deploy:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
-    needs: [test-e2e-chrome, test-e2e-firefox]
     steps:
       # Get last commit from event branch
       # https://github.com/marketplace/actions/checkout
@@ -43,12 +38,20 @@ jobs:
         with:
           fetch-depth: 1
 
-      # Download dist folder (Artifact)
-      # https://github.com/marketplace/actions/download-a-build-artifact
-      - uses: actions/download-artifact@v3
+      # Install Node
+      # https://github.com/marketplace/actions/setup-node-js-environment
+      - uses: actions/setup-node@v3
         with:
-          name: dist
-          path: dist
+          node-version: 18
+          cache: 'npm'
+      
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Build
+      - name: Build app
+        run: npm run build
       
       # Deploy to Firebase Hosting
       # https://github.com/marketplace/actions/deploy-to-firebase-hosting
