@@ -29,6 +29,7 @@ jobs:
       browser: firefox
 
   deploy:
+    needs: [test-e2e-chrome, test-e2e-firefox]
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
@@ -38,20 +39,12 @@ jobs:
         with:
           fetch-depth: 1
 
-      # Install Node
-      # https://github.com/marketplace/actions/setup-node-js-environment
-      - uses: actions/setup-node@v3
+      # Download dist folder (Artifact)
+      # https://github.com/marketplace/actions/download-a-build-artifact
+      - uses: actions/download-artifact@v3
         with:
-          node-version: 18
-          cache: 'npm'
-      
-      # Install dependencies
-      - name: Install dependencies
-        run: npm ci
-
-      # Build
-      - name: Build app
-        run: npm run build
+          name: dist
+          path: dist
       
       # Deploy to Firebase Hosting
       # https://github.com/marketplace/actions/deploy-to-firebase-hosting
