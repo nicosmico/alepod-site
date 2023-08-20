@@ -26,6 +26,9 @@ jobs:
           name: dist
           path: dist
       
+      - name: Display config
+        run: echo ${{ inputs.channelId }}
+      
       # Deploy to Firebase Hosting
       # https://github.com/marketplace/actions/deploy-to-firebase-hosting
       - name: Deploy to Firebase Hosting
@@ -33,5 +36,6 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALEPOD }}'
-          channelId: ${{ inputs.channelId }}
           projectId: alepod
+          # channelId: ${{ inputs.channelId }}
+          channelId: live
