@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+# Cancel unfinished previous workflow
+# github.workflow: Workflow name
+# github.ref: Event reference, like branch name. Ex: refs/heads/main
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -46,7 +49,7 @@ jobs:
           name: dist
           path: dist
       
-      # Deploy to Firebase Hosting
+      # Deploy to production in Firebase Hosting
       # https://github.com/marketplace/actions/deploy-to-firebase-hosting
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0

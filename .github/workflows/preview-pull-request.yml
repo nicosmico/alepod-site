@@ -1,0 +1,55 @@
+name: Pull request pipeline
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    uses: ./.github/workflows/reusable/lint.yml
+
+  build:
+    uses: ./.github/workflows/reusable/build.yml
+
+  test-e2e-chrome:
+    needs: [lint, build]
+    uses: ./.github/workflows/reusable/test-e2e.yml
+    with:
+      browser: electron
+
+  test-e2e-firefox:
+    needs: [lint, build]
+    uses: ./.github/workflows/reusable/test-e2e.yml
+    with:
+      browser: firefox
+
+  deploy:
+      needs: [test-e2e-chrome, test-e2e-firefox]
+      runs-on: ubuntu-22.04
+      timeout-minutes: 30
+      steps:
+        # Get last commit from event branch
+        # https://github.com/marketplace/actions/checkout
+        - uses: actions/checkout@v3
+          with:
+            fetch-depth: 1
+
+        # Download dist folder (Artifact)
+        # https://github.com/marketplace/actions/download-a-build-artifact
+        - uses: actions/download-artifact@v3
+          with:
+            name: dist
+            path: dist
+        
+        # Deploy to Firebase Hosting preview channel
+        # https://github.com/marketplace/actions/deploy-to-firebase-hosting
+        - name: Deploy to Firebase Hosting
+          uses: FirebaseExtended/action-hosting-deploy@v0
+          with:
+            repoToken: ${{ secrets.GITHUB_TOKEN }}
+            firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALEPOD }}
+            projectId: alepod
+  
