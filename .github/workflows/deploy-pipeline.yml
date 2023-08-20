@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   lint:
-    uses: .github/workflows/lint.yml@main
+    uses: ./.github/workflows/lint.yml@main
   # lint:
   #   runs-on: ubuntu-22.04
   #   timeout-minutes: 30
