@@ -32,4 +32,6 @@ jobs:
     needs: [test-e2e-chrome, test-e2e-firefox]
     uses: ./.github/workflows/firebase-hosting-deploy.yml
     with:
+      repoToken: ${{ secrets.GITHUB_TOKEN }}
+      firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALEPOD }}
       channelId: live # Production

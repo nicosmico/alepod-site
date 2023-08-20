@@ -3,6 +3,14 @@ name: Deploy to Firebase Hosting
 on:
   workflow_call:
     inputs:
+      repoToken:
+        description: Github repository token
+        required: true
+        type: string
+      firebaseServiceAccount:
+        description: Firebase service account
+        required: true
+        type: string
       channelId:
         description: Browser to run tests
         default: ''
@@ -34,8 +42,7 @@ jobs:
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALEPOD }}'
+          repoToken: ${{ inputs.repoToken }}
+          firebaseServiceAccount: ${{ inputs.firebaseServiceAccount }}
           projectId: alepod
-          # channelId: ${{ inputs.channelId }}
-          channelId: live
+          channelId: ${{ inputs.channelId }}
