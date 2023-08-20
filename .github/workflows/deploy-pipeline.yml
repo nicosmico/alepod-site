@@ -23,10 +23,14 @@ jobs:
   test-e2e-chrome:
     needs: [lint, build]
     uses: ./.github/workflows/test-e2e.yml
+    with:
+      browser: chrome
 
   test-e2e-firefox:
     needs: [lint, build]
     uses: ./.github/workflows/test-e2e.yml
+    with:
+      browser: firefox
 
   deploy:
     runs-on: ubuntu-22.04
