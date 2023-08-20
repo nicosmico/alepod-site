@@ -1,0 +1,37 @@
+name: Deploy to Firebase Hosting
+
+on:
+  workflow_call:
+    inputs:
+      channelId:
+        description: Browser to run tests
+        default: ''
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      # Get last commit from event branch
+      # https://github.com/marketplace/actions/checkout
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      # Download dist folder (Artifact)
+      # https://github.com/marketplace/actions/download-a-build-artifact
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
+      
+      # Deploy to Firebase Hosting
+      # https://github.com/marketplace/actions/deploy-to-firebase-hosting
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALEPOD }}'
+          channelId: ${{ inputs.channelId }}
+          projectId: alepod
