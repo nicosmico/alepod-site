@@ -12,5 +12,4 @@ module.exports = defineConfig({
     runMode: 2,
     openMode: 0,
   },
-  experimentalWebKitSupport: true
 });
