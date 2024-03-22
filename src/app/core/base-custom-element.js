@@ -16,7 +16,7 @@ export default class BaseCustomElement extends HTMLElement {
   }
 
   // Excecuted when the custom element is removed from the DOM.
-  disconnectedCallback() {}
+  disconnectedCallback() { }
 
   // Method to declare attributes to observe on changes.
   // This method must be overrided.
@@ -35,14 +35,14 @@ export default class BaseCustomElement extends HTMLElement {
 
   // Executed when the component is moved to a new document.
   // (ex. someone called document.adoptNode(el)).
-  adoptedCallback() {}
+  adoptedCallback() { }
 
   // ///////////////////////////////////////////////////////////////////////////////////////////////
   // BaseCustomElement methods /////////////////////////////////////////////////////////////////////
   // ///////////////////////////////////////////////////////////////////////////////////////////////
 
   // Executed after the component was added to the DOM.
-  afterFirstRender() {}
+  afterFirstRender() { }
 
   // Use to update the template in the html.
   // Executed when the component is added to the DOM or when any attribute of the component changes.
@@ -55,18 +55,6 @@ export default class BaseCustomElement extends HTMLElement {
   // This method must be overrided.
   htmlTemplate() {
     return `<p>${this.localName} works!</p>`;
-  }
-
-  // Used to create a getter and a setter.
-  // When the setter is called, the render method will be executed.
-  createSetter(defaultValue) {
-    let value = defaultValue;
-    const getValue = () => value;
-    const setValue = (newValue) => {
-      value = newValue;
-      this.render();
-    };
-    return [getValue, setValue];
   }
 }
 
