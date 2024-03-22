@@ -27,8 +27,8 @@ export default class MainNavbar extends BaseCustomElement {
 
     // Check saved and prefers theme
     const savedDarkTheme = localStorage.getItem('dark-theme');
-    const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    this.darkTheme = savedDarkTheme ? savedDarkTheme === 'true' : prefersDarkTheme;
+    // const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    this.darkTheme = savedDarkTheme === 'true';
   }
 
   htmlTemplate() {
