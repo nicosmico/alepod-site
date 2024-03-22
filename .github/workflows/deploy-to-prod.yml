@@ -31,6 +31,12 @@ jobs:
     with:
       browser: firefox
 
+  test-e2e-webkit:
+    needs: [lint, build]
+    uses: ./.github/workflows/test-e2e.yml
+    with:
+      browser: webkit
+
   deploy:
     needs: [test-e2e-chrome, test-e2e-firefox]
     runs-on: ubuntu-22.04
