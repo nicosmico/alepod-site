@@ -4,3 +4,6 @@ dist/
 
 *.mp4
 TODO.txt
+
+cypress/screenshots/
+cypress/downloads/

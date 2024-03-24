@@ -23,6 +23,7 @@ describe('02 - Navbar', () => {
         cy.get($link).click({ scrollBehavior: 'center' });
         cy.url().should('contain', href);
         cy.get(href);
+        cy.get($link).should('have.class', 'active');
       });
     });
 
@@ -51,6 +52,26 @@ describe('02 - Navbar', () => {
         cy.url().should('contain', href);
         cy.get(href);
       });
+    });
+
+    it('user can change section', () => {
+      cy.getBySel('navbar-link').each(($link) => {
+        const href = $link.attr('href');
+        cy.get($link).click({ scrollBehavior: 'center' });
+        cy.url().should('contain', href);
+        cy.get(href);
+        cy.get($link).should('have.class', 'active');
+      });
+    });
+
+    it('user can toggle dark theme', () => {
+      cy.getBySel('navbar-theme-toggle').click();
+      cy.getBySel('navbar-theme-toggle').should('have.attr', 'data-dark', 'true');
+      cy.get('body').should('have.class', 'dark');
+
+      cy.getBySel('navbar-theme-toggle').click();
+      cy.getBySel('navbar-theme-toggle').should('have.attr', 'data-dark', 'false');
+      cy.get('body').should('not.have.class', 'dark');
     });
   });
 });
