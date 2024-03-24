@@ -1,5 +1,6 @@
 import logoSvgRaw from '!!raw-loader!../../../assets/images/logo-alepod-square.svg';
 import BaseCustomElement from '../../core/base-custom-element';
+import debounce from '../../utils/debounce';
 import './main-navbar.css';
 
 export default class MainNavbar extends BaseCustomElement {
@@ -90,14 +91,15 @@ export default class MainNavbar extends BaseCustomElement {
       }, {});
 
       // Listen scroll changes
-      document.addEventListener('scroll', () => {
+      const updateActiveSectionOnScroll = debounce(() => {
         const currentSection = this.sectionsOrder.find((s) => {
           const sectionEl = sectionsScrollBreakpoints[s];
           const scrollY = Math.ceil(window.scrollY) + 1;
           return scrollY >= sectionEl.top && scrollY < sectionEl.bottom;
         });
         this.updateActiveSection(`#${currentSection}`);
-      }, { passive: true, capture: true });
+      }, 20);
+      document.addEventListener('scroll', updateActiveSectionOnScroll, { passive: true, capture: true });
     }, 50);
   }
 
