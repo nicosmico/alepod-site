@@ -1,11 +1,44 @@
 [
   {
     "user": {
-      "name": "Gisselle Pereira",
-      "picture": "https://lh3.googleusercontent.com/a/AAcHTtdHqTtZkKfIcfFQIDYwubfgwYmVNHNLkv_suvDhMXiv=s120-c-rp-mo-br100"
+      "name": "Jorge Reyes",
+      "picture": "https://lh3.googleusercontent.com/a-/ALV-UjVSxMcmdrK2Yj0j7mL18Sqp4-hRYh5d4HMfbsg7JNYBcg=s120-c-rp-mo-br100"
     },
     "review": {
-      "since": "Hace 2 meses",
+      "since": "Hace un mes",
+      "content": "Alejandra, es una extraordinaria profesional, amable y sobre todo conocedora  de su profesión.\nYo vivo en la Provincia de Arauco y estaba acostumbrado a mostrar lágrimas de dolor en cada seción podología, sin embargo con Alejandra, esto no sucedió. Aún no entiendo cómo trato mis uñas con tanta amabilidad y lo más increíble. SIN DOLOR.\nCreo que viajaré a Molina, cada dos meses para que ella me atienda.\nLa recomiendo sin ninguna duda.\nGracias Alejandra.",
+      "rating": 5
+    }
+  },
+  {
+    "user": {
+      "name": "Emely Bravo",
+      "picture": "https://lh3.googleusercontent.com/a-/ALV-UjX_49pFrB_cZ51FS7nFyWit_7bNFQlk1u559AwChGCXRgg=s120-c-rp-mo-br100"
+    },
+    "review": {
+      "since": "3 semanas atrás",
+      "content": "Muy buena atención, amorosa y alegre, hace un excelente trabajo☺️",
+      "rating": 5
+    }
+  },
+  {
+    "user": {
+      "name": "BARBARA MUÑOZ",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocIw3_vgSnzzuKWI146TtNYzWY5YiVAd7OfyPq4vkmeM=s120-c-rp-mo-br100"
+    },
+    "review": {
+      "since": "Hace 7 meses",
+      "content": "Me atiendo con Alepod desde hace más de un año, es una excelente profesional y una muy linda persona la recomiendo al 100%.",
+      "rating": 5
+    }
+  },
+  {
+    "user": {
+      "name": "Gisselle Pereira",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocIzeuv8RGq7Jm_n4V6ho3Axh21szY9HIcJmd54_oivk=s120-c-rp-mo-br100"
+    },
+    "review": {
+      "since": "Hace 10 meses",
       "content": "Excelente profesional, cariñosa, dedicada, responsable, llevó más de un año en tratamiento con la podologa, recomendable 100%",
       "rating": 5
     }
@@ -13,33 +46,33 @@
   {
     "user": {
       "name": "Amanda Bustamante",
-      "picture": "https://lh3.googleusercontent.com/a-/AD_cMMTFAdINfqCgVkp6cPV8bFvVK1VA08zgsKfYl7kKtUkXWAw=s120-c-rp-mo-br100"
+      "picture": "https://lh3.googleusercontent.com/a-/ALV-UjXBkRbgsf1YeQRKzpik-V51p06zEYlxpm5ayFCklRgrGSk=s120-c-rp-mo-br100"
     },
     "review": {
-      "since": "Hace 5 meses",
+      "since": "Hace un año",
       "content": "Excelente atención, sus procedimientos me ayudaron a sanar mis pies y uñas.\nGentil y muy buena profesional.",
       "rating": 5
     }
   },
   {
     "user": {
-      "name": "Juan Carlos Garrido Arenas",
-      "picture": "https://lh3.googleusercontent.com/a/AAcHTtd-c7iBHeupZH2pcELuRkzM1b8YhUf8KQYCv3br-SZq=s120-c-rp-mo-br100"
+      "name": "lorena maraboli fernandez",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ6-gm6wuE9swqj5B7ky6OQjSrvA91uT9lrDKkkeeXd=s120-c-rp-mo-br100"
     },
     "review": {
-      "since": "Hace un año",
-      "content": "Exelente profesional con atencion esmerada",
+      "since": "Hace 2 años",
+      "content": "Excelente professional , muy buena atención.",
       "rating": 5
     }
   },
   {
     "user": {
-      "name": "lorena maraboli fernandez",
-      "picture": "https://lh3.googleusercontent.com/a/AAcHTtffnVswRNGeSaeTkuqnMnbdWMPjDsH6tzcWt3D0V5RV=s120-c-rp-mo-br100"
+      "name": "Juan Carlos Garrido Arenas",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocKA0TcRMh7lJ2ucCeNBdA_9slRgKeRth4FK8Q6qpCeu=s120-c-rp-mo-br100"
     },
     "review": {
-      "since": "Hace un año",
-      "content": "Excelente professional , muy buena atención.",
+      "since": "Hace 2 años",
+      "content": "Exelente profesional con atencion esmerada",
       "rating": 5
     }
   }
