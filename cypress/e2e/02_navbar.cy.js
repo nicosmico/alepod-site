@@ -20,9 +20,17 @@ describe('02 - Navbar', () => {
       cy.getBySel('navbar-link').each(($link) => {
         cy.getBySel('navbar-toggle').click();
         const href = $link.attr('href');
-        cy.get($link).click({ scrollBehavior: 'center' });
+        cy.get($link).click();
         cy.url().should('contain', href);
         cy.get(href);
+        cy.get($link, { timeout: 1000 }).should('have.class', 'active');
+      });
+    });
+
+    it('user change active link on scroll', () => {
+      cy.getBySel('navbar-link').each(($link) => {
+        const href = $link.attr('href');
+        cy.get(href).scrollIntoView();
         cy.get($link).should('have.class', 'active');
       });
     });
@@ -57,9 +65,17 @@ describe('02 - Navbar', () => {
     it('user can change section', () => {
       cy.getBySel('navbar-link').each(($link) => {
         const href = $link.attr('href');
-        cy.get($link).click({ scrollBehavior: 'center' });
+        cy.get($link).click();
         cy.url().should('contain', href);
         cy.get(href);
+        cy.get($link, { timeout: 1000 }).should('have.class', 'active');
+      });
+    });
+
+    it('user change active link on scroll', () => {
+      cy.getBySel('navbar-link').each(($link) => {
+        const href = $link.attr('href');
+        cy.get(href).scrollIntoView();
         cy.get($link).should('have.class', 'active');
       });
     });
