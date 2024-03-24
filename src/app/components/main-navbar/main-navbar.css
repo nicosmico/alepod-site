@@ -96,7 +96,7 @@ main-navbar .navbar__list {
     padding: 4rem var(--container-space);
     border-end-start-radius: 0;
     border-end-end-radius: 0;
-    
+
     transition-property: transform, border-end-start-radius, border-end-end-radius;
     transition-duration: .2s, .2s, .2s;
     transition-timing-function: ease, ease, ease;
@@ -136,6 +136,8 @@ main-navbar .navbar__link::after {
     display: block;
     width: 1%;
     height: 2px;
+    margin-top: 2px;
+    border-radius: 2px;
     background-color: transparent;
     transition-property: background-color, width;
     transition-duration: .08s, .15s;
@@ -183,7 +185,7 @@ main-navbar .navbar__link.active::after {
         display: block;
     }
 
-    main-navbar .navbar__logo > svg {
+    main-navbar .navbar__logo>svg {
         width: 150px;
         height: 150px;
         color: var(--clr-on-primary);

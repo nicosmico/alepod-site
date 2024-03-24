@@ -12,27 +12,30 @@ export default class MainNavbar extends BaseCustomElement {
   menuLinks = null;
   body = null;
 
-  sections = [
-    { number: '01', title: 'Agendar hora', href: '#home' },
-    { number: '02', title: 'Localidades', href: '#locations' },
-    { number: '03', title: 'Preguntas', href: '#questions' },
-    { number: '04', title: 'Sobre mi', href: '#about-me' },
-    { number: '05', title: 'Comentarios', href: '#comments' },
-  ];
+  sections = {
+    home: { number: '01', title: 'Agendar hora', href: '#home' },
+    locations: { number: '02', title: 'Localidades', href: '#locations' },
+    questions: { number: '03', title: 'Preguntas', href: '#questions' },
+    'about-me': { number: '04', title: 'Sobre mi', href: '#about-me' },
+    comments: { number: '05', title: 'Comentarios', href: '#comments' },
+  };
 
-  navLink = (section) => `<li><a class="navbar__link uppercase ft-headline active" href="${section.href}" data-test="navbar-link"><span>${section.number}</span>${section.title}</a></li>`;
+  sectionsOrder = ['home', 'locations', 'questions', 'about-me', 'comments'];
+
+  navLink = (section) => `<li><a class="navbar__link uppercase ft-headline" href="${section.href}" data-test="navbar-link"><span>${section.number}</span>${section.title}</a></li>`;
 
   constructor() {
     super();
 
-    // Check saved and prefers theme
     const savedDarkTheme = localStorage.getItem('dark-theme');
-    // const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
     this.darkTheme = savedDarkTheme === 'true';
   }
 
   htmlTemplate() {
-    const listLinks = this.sections.map((section) => this.navLink(section));
+    const listLinks = this.sectionsOrder
+      .map((sectionName) => this.sections[sectionName])
+      .map((section) => this.navLink(section))
+      .join('');
 
     return `
     <a class="navbar__title f-family-sans-2" href="#home">ALEPOD</a>
@@ -42,7 +45,7 @@ export default class MainNavbar extends BaseCustomElement {
     </button>
 
     <ul class="navbar__list bg-primary txt-on-primary flex-column gap-2" data-visible="false" data-test="navbar-list">
-      ${listLinks.join('')}
+      ${listLinks}
       <button class="toggle-theme" data-dark="${this.darkTheme}" data-test="navbar-theme-toggle"></button>
     </ul>
     `;
@@ -66,11 +69,36 @@ export default class MainNavbar extends BaseCustomElement {
     // Togle menu
     this.toggleMenuButton.addEventListener('click', () => (this.menuOpen ? this.closeMenu() : this.openMenu()));
 
-    // Handle active location
-    this.changeActiveOnNavigation();
+    // Listen change section on menu
     window.addEventListener('hashchange', () => {
-      this.changeActiveOnNavigation();
+      this.closeMenu();
     });
+
+    // Run async to wait for page custom elements to render
+    setTimeout(() => {
+      const defaultSection = window.location.hash;
+      this.updateActiveSection(defaultSection.length ? defaultSection : this.sections.home.href);
+
+      // Get sections scroll breakpoints
+      const sectionsScrollBreakpoints = this.sectionsOrder.reduce((acc, section) => {
+        const el = document.getElementById(section);
+        acc[section] = {
+          top: el.offsetTop,
+          bottom: el.offsetTop + el.offsetHeight,
+        };
+        return acc;
+      }, {});
+
+      // Listen scroll changes
+      document.addEventListener('scroll', () => {
+        const currentSection = this.sectionsOrder.find((s) => {
+          const sectionEl = sectionsScrollBreakpoints[s];
+          const scrollY = Math.ceil(window.scrollY) + 1;
+          return scrollY >= sectionEl.top && scrollY < sectionEl.bottom;
+        });
+        this.updateActiveSection(`#${currentSection}`);
+      }, { passive: true, capture: true });
+    }, 50);
   }
 
   openMenu() {
@@ -89,21 +117,14 @@ export default class MainNavbar extends BaseCustomElement {
     this.classList.remove('txt-on-primary');
   }
 
-  changeActiveOnNavigation() {
-    let hasHash = false;
+  updateActiveSection(sectionId) {
     this.menuLinks.forEach((link) => {
-      if (link.getAttribute('href') === window.location.hash) {
+      if (link.getAttribute('href') === sectionId) {
         link.classList.add('active');
-        hasHash = true;
-        this.closeMenu();
       } else {
         link.classList.remove('active');
       }
     });
-
-    if (!hasHash) {
-      this.menuLinks[0].classList.add('active');
-    }
   }
 
   setDarkTheme(value) {
